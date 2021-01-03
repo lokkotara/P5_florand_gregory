@@ -1,0 +1,13 @@
+
+.teddyCard {
+  display: flex;
+  justify-content: center;
+  background-color: crimson;
+  figure {
+    width: 90%;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orinoco</title>
-  <link rel="stylesheet" href="style.css">
-
+  <title>Orinounours</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+  crossorigin="anonymous" />
   <!-- pages -->
   <script src="js/pages/home.js"></script>
   <!-- composants -->
@@ -17,22 +19,83 @@
 <script src="js/main.js" defer></script>
 
 </head>
-<body>
-  <header>
-  <img src="" alt="Logo Orinoco">
+<body class="body">
+  <header class="test">
+  <!-- <img src="./images/logo.png" alt="Logo Orinoco"> -->
   <nav>
-    <ul>
-      <li>Accueil</li>
-      <li>Conditions</li>
-    </ul>
+    <img src="./images/logo.png" alt="Logo Orinoco" class="logo">
+    <h1>Orinounours</h1>
+    <i class="fas fa-shopping-cart"></i>
   </nav>
-  <div class="Cart"></div>
+  <!-- <div class="Cart">panier</div> -->
 </header>
-  
-
-
+  <main>
+    <article class="teddyCard">
+      <figure>
+        <img src="./images/teddy_1.jpg" alt="Premier ours">
+        <figcaption>
+          <h3>Ours1</h3>
+          <span>35,50€</span>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus enim suscipit optio at quo! Ab, vel aspernatur. Maiores alias rerum harum earum dignissimos, enim vel voluptatem aliquam sint, repellendus saepe!
+          </p>
+          <input type="button" value="Ajouter au panier">
+        </figcaption>
+      </figure>
+    </article>
+    <article class="teddyCard">
+      <figure>
+        <img src="./images/teddy_2.jpg" alt="Premier ours">
+        <figcaption>
+          <h3>Ours2</h3>
+          <span>39,50€</span>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus enim suscipit optio at quo! Ab, vel aspernatur. Maiores alias rerum harum earum dignissimos, enim vel voluptatem aliquam sint, repellendus saepe!
+          </p>
+          <input type="button" value="Ajouter au panier">
+        </figcaption>
+      </figure>
+    </article>
+    <article class="teddyCard">
+      <figure>
+        <img src="./images/teddy_3.jpg" alt="Premier ours">
+        <figcaption>
+          <h3>Ours3</h3>
+          <span>42,50€</span>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus enim suscipit optio at quo! Ab, vel aspernatur. Maiores alias rerum harum earum dignissimos, enim vel voluptatem aliquam sint, repellendus saepe!
+          </p>
+          <input type="button" value="Ajouter au panier">
+        </figcaption>
+      </figure>
+    </article>
+    <article class="teddyCard">
+      <figure>
+        <img src="./images/teddy_4.jpg" alt="Premier ours">
+        <figcaption>
+          <h3>Ours4</h3>
+          <span>32,00€</span>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus enim suscipit optio at quo! Ab, vel aspernatur. Maiores alias rerum harum earum dignissimos, enim vel voluptatem aliquam sint, repellendus saepe!
+          </p>
+          <input type="button" value="Ajouter au panier">
+        </figcaption>
+      </figure>
+    </article>
+    <article class="teddyCard">
+      <figure>
+        <img src="./images/teddy_5.jpg" alt="Premier ours">
+        <figcaption>
+          <h3>Ours5</h3>
+          <span>28,50€</span>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus enim suscipit optio at quo! Ab, vel aspernatur. Maiores alias rerum harum earum dignissimos, enim vel voluptatem aliquam sint, repellendus saepe!
+          </p>
+          <input type="button" value="Ajouter au panier">
+        </figcaption>
+      </figure>
+    </article>
+  </main>
   <footer>
-  ceci est un pied de page
+  <ul>
+    <li>Conditions</li>
+    <li>Mentions légales</li>
+  </ul>
 </footer>
 </body>
 </html>

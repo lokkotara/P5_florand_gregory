@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+  .logo {
+    width: 5rem;
+    padding: 1rem 0;
+  }
+  i {
+    font-size: 3rem;
+    display: block;
+  }
+}
+.test {
+  background-color: aquamarine;
+}
