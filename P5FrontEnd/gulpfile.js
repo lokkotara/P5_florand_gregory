@@ -35,7 +35,7 @@ function autoUpdate(){
   gulp.watch("./scss/main.scss", scss2css);
   gulp.watch("./scss/elements/*.scss", scss2css);
   gulp.watch("./www/").on("change", browserSync.reload);
-  gulp.watch("./src/templates/pages/*.html", makeTemplate);
+  gulp.watch("./src/templates/**/*.html", makeTemplate);
 }
 
 exports.scss2css = scss2css;
