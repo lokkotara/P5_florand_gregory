@@ -56,3 +56,31 @@
     border-radius: 2.5rem 0 0 2.5rem;
   }
 }
+.tanColor {
+  color: #d2b48c;
+}
+.chocolateColor {
+  color: #57300F;
+}
+.blackColor {
+  color: #000000;
+}
+.whiteColor {
+  color: #FFFFFF;
+}
+.customize {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.displayColors {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  i {
+    font-size: 2.5rem;
+  }
+  label {
+    width: 100%;
+  }
+}
