@@ -1,0 +1,12 @@
+.confirmationWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2{
+    padding-bottom: 2rem;
+  }
+  span {
+    font-weight: bold;
+  }
+}

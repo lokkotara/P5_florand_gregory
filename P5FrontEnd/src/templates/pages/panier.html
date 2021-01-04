@@ -11,10 +11,52 @@
   <script src="js/pages/home.js"></script>
   <%- include("../partials/scripts.html"); %>
 </head>
-<body>
+<body class="extended">
   <%- include("../partials/header.html"); %>
-  <main>
-
+  <main class="mainCart">
+    <table>
+      <thead>
+        <tr>
+          <td>a</td>
+          <td>a</td>
+          <td>a</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>b</td>
+          <td>b</td>
+          <td>b</td>
+        </tr>
+      </tbody>
+    </table>
+    <form class="form">
+      <div>
+        <label for="lastname">Nom de famille</label>
+        <input type="text" name="lastname" placeholder="Dupont">
+      </div>
+      <div>
+        <label for="firstname">Prénom</label>
+        <input type="text" name="firstname" placeholder="Jean">
+      </div>
+      <div>
+        <label for="email">Adresse de messagerie</label>
+        <input type="email" name="email" placeholder="JeanDupont@gmail.com">
+      </div>
+      <div>
+        <label for="adress">Adresse</label>
+        <input type="text" name="adress" placeholder="5 rue du pont Napoléon">
+      </div>
+      <div>
+        <label for="postalCode">Code postal</label>
+        <input type="text" name="postalCode" placeholder="75000">
+      </div>
+      <div>
+        <label for="town">Ville</label>
+        <input type="text" name="town" placeholder="Paris">
+      </div>
+      <a href="./confirmation.html"><input type="button" value="Envoyer"></a>
+    </form>
   </main>
   <%- include("../partials/footer.html"); %>
 </body>

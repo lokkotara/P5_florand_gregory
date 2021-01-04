@@ -10,7 +10,7 @@ header {
     align-items: center;
   }
   .logo {
-    width: 5rem;
+    width: 10rem;
     padding: 1rem 0;
   }
   i {
@@ -19,5 +19,6 @@ header {
   }
 }
 .test {
-  background-color: aquamarine;
+  background-color: #f3e6e8;
+  background-image: linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%);
 }

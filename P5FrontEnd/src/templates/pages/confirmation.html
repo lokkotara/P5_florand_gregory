@@ -11,10 +11,14 @@
   <script src="js/pages/home.js"></script>
   <%- include("../partials/scripts.html"); %>
 </head>
-<body>
+<body class="extended">
   <%- include("../partials/header.html"); %>
   <main>
-
+    <section class="confirmationWrapper">
+      <h2>Merci pour votre commande !</h2>
+      <p>Votre commande <span id="orderId">n°53235456465</span></p><p> d'un montant de <span id="orderAmount">35,00€</span> a été validé.</p>
+      <p>Vous allez recevoir par mail un récapitulatif </p>
+    </section>
   </main>
   <%- include("../partials/footer.html"); %>
 </body>

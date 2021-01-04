@@ -11,7 +11,13 @@ body {
   background-color: white;
   color: black;
 }
-
+//Classe à ajouter pour coller le footer en bas si la  page n'est pas assez grande
+.extended {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
 *,
 *::before,
 *::after {
@@ -73,12 +79,10 @@ li {
   display: inline;
 }
 
-// .body {
-//   padding: 0 2rem;
-// }
-
 // Imports
 @import 'elements/header';
 @import 'elements/cart';
 @import 'elements/products';
+@import 'elements/singleProduct';
 @import 'elements/footer';
+@import 'elements/confirmation';
