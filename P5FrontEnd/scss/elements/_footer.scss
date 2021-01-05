@@ -1,16 +1,16 @@
 footer {
   background-color: #f3e6e8;
-  background-image: linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%);
+  background-image: linear-gradient(190deg, #a5a4cb 0%, #d5d0e5 74%);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 5rem;
   width: 100vw;
-  // position: fixed;
   bottom: 0;
-  // position: absolute;
+  color: #2d2c2c;
   ul {
     display: flex;
+    text-align: center;
     justify-content: space-between;
     width: 80%;
   }

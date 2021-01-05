@@ -1,12 +1,27 @@
 .confirmationWrapper {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 5rem;
+  border: 1px black solid;
+  border-radius: 15px;
   h2{
     padding-bottom: 2rem;
   }
   span {
     font-weight: bold;
+  }
+}
+.mainConfirmation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  div {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
   }
 }

@@ -2,7 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+  padding: 0 2rem;
   table {
     border: 1px black solid;
+    img {
+      max-width: 15rem;
+      border: 1px black solid;
+    }
+    .middleRow {
+      border-bottom: 1px black solid;
+    }
+    td {
+      padding: 1.5rem;
+    }
   }
+}
+.form {
+  border: 1px black solid;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  
 }

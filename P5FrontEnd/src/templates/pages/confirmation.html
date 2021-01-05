@@ -13,12 +13,15 @@
 </head>
 <body>
   <%- include("../partials/header.html"); %>
-  <main>
+  <main class="mainConfirmation">
     <section class="confirmationWrapper">
       <h2>Merci pour votre commande !</h2>
       <p>Votre commande <span id="orderId">n°53235456465</span></p><p> d'un montant de <span id="orderAmount">35,00€</span> a été validé.</p>
       <p>Vous allez recevoir par mail un récapitulatif </p>
     </section>
+    <div>
+      <a href="./index.html"><i class="fas fa-arrow-left">  Retourner sur la page d'accueil</i></a>
+    </div>
   </main>
   <%- include("../partials/footer.html"); %>
 </body>

@@ -18,59 +18,40 @@
 <script src="js/main.js" defer></script>
 </head>
 <body>
-  <header class="test">
-  <!-- <img src="./images/logo.png" alt="Logo Orinoco"> -->
+  <header class="header">
   <nav>
     <a href="./index.html"><img src="./images/logo-removebg-preview.png" alt="Logo Orinoco" class="logo"></a>
-    <!-- <h1>Orinounours</h1> -->
-    <a href="./panier.html"><i class="fas fa-shopping-cart"></i></a>
+    <a href="./panier.html" class="iconCart"><span> Mon panier</span><i class="fas fa-shopping-cart"></i></a>
   </nav>
-  <!-- <div class="Cart">panier</div> -->
 </header>
   <main class="mainCart">
-    <table>
-      <thead>
+    <table class="cartSummary">
         <tr>
-          <td>a</td>
-          <td>a</td>
-          <td>a</td>
+          <td><img src="http://localhost:3000/images/teddy_1.jpg" alt="Premier ours"></td>
+          <td class="middleRow"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p></td>
+          <td><p>29,00€</p></td>
         </tr>
-      </thead>
-      <tbody>
         <tr>
-          <td>b</td>
-          <td>b</td>
-          <td>b</td>
+          <td><img src="http://localhost:3000/images/teddy_1.jpg" alt="Premier ours"></td>
+          <td><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></td>
+          <td><p>29,00€</p></td>
         </tr>
-      </tbody>
     </table>
     <form class="form">
-      <div>
-        <label for="lastname">Nom de famille</label>
-        <input type="text" name="lastname" placeholder="Dupont">
-      </div>
-      <div>
-        <label for="firstname">Prénom</label>
-        <input type="text" name="firstname" placeholder="Jean">
-      </div>
-      <div>
-        <label for="email">Adresse de messagerie</label>
-        <input type="email" name="email" placeholder="JeanDupont@gmail.com">
-      </div>
-      <div>
-        <label for="adress">Adresse</label>
-        <input type="text" name="adress" placeholder="5 rue du pont Napoléon">
-      </div>
-      <div>
-        <label for="postalCode">Code postal</label>
-        <input type="text" name="postalCode" placeholder="75000">
-      </div>
-      <div>
-        <label for="town">Ville</label>
-        <input type="text" name="town" placeholder="Paris">
-      </div>
-      <a href="./confirmation.html"><input type="button" value="Envoyer"></a>
+      <label for="lastname">Nom de famille</label>
+      <input type="text" name="lastname" placeholder="Dupont">
+      <label for="firstname">Prénom</label>
+      <input type="text" name="firstname" placeholder="Jean">
+      <label for="email">Adresse de messagerie</label>
+      <input type="email" name="email"placeholder="JeanDupont@gmail.com">
+      <label for="adress">Adresse</label>
+      <input type="text" name="adress" placeholder="5 rue dupont Napoléon">
+      <label for="postalCode">Code postal</label>
+      <input type="text" name="postalCode" placeholder="75000">
+      <label for="town">Ville</label>
+      <input type="text" name="town" placeholder="Paris">
     </form>
+    <a href="./confirmation.html"><input class="formBtn" type="button" value="Envoyer"></a>
   </main>
   <footer>
   <ul>
