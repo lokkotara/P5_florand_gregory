@@ -6,6 +6,7 @@
   padding: 0 2rem;
   table {
     border: 1px black solid;
+    font-size: 1.5rem;
     img {
       max-width: 15rem;
       border: 1px black solid;
@@ -14,12 +15,17 @@
       border-bottom: 1px black solid;
     }
     td {
+      display: block;
       padding: 1.5rem;
+    }
+    tr {
+      display: flex;
+      flex-flow: wrap;
     }
   }
 }
 .form {
-  border: 1px black solid;
+  // border: 1px black solid;
   display: flex;
   flex-direction: column;
   padding-top: 2rem;
