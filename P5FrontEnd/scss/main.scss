@@ -5,18 +5,12 @@
   --Tertiary-Color: #;
   font-size: 10px;
 }
-
+* 
 body {
   font-family: 'Roboto', sans-serif;
   background-color: white;
   color: black;
-}
-//Classe à ajouter pour coller le footer en bas si la  page n'est pas assez grande
-.extended {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: space-between;
+  height: 100%;
 }
 *,
 *::before,
@@ -43,6 +37,7 @@ h6 {
 
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 a {
@@ -78,7 +73,13 @@ h3 {
 li {
   display: inline;
 }
-
+main {
+  padding-bottom: 5rem;
+  min-height: 100%;
+}
+.mainWrapper {
+  margin-bottom: -5rem;
+}
 // Imports
 @import 'elements/header';
 @import 'elements/cart';
