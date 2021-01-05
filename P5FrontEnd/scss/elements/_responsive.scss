@@ -1,0 +1,14 @@
+@media screen and (min-width:768px) {
+  .singleProduct {
+    flex-flow: row;
+    img {
+    border-radius: 2.5rem 0 0 2.5rem;
+    min-width: 34rem;
+    }
+    figure {
+      max-width: 50%;
+    }
+  }
+  .confirmationWrapper {
+    padding: 5rem;
+}
