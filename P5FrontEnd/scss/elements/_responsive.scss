@@ -1,4 +1,10 @@
 @media screen and (min-width:768px) {
+  header {
+    padding: 0 3rem;
+    span {
+      display: block;
+    }
+  }
   .singleProduct {
     flex-flow: row;
     img {
@@ -11,5 +17,31 @@
   }
   .confirmationWrapper {
     padding: 5rem;
+  }
+  .mainCart {
+    table {
+      img {
+        max-width: 25rem;
+      }
+      tr {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .trashIcon {
+        padding-right: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width:940px) {
+  .teddyCard {
+    width: auto;
+    figure {
+      max-width: 45rem;
+    }
+    img {
+    max-height: 28rem;
+    }
   }
 }

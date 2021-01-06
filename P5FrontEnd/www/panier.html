@@ -20,34 +20,49 @@
 <body>
   <header class="header">
   <nav>
-    <a href="./index.html"><img src="./images/logo-removebg-preview.png" alt="Logo Orinoco" class="logo"></a>
+    <a href="./index.html " class="iconHome"><i class="fas fa-home homeIcon"></i><span>Accueil</span></a>
+    <img src="./images/logo-removebg-preview.png" alt="Logo Orinoco" class="logo">
     <a href="./panier.html" class="iconCart"><span> Mon panier</span><i class="fas fa-shopping-cart"></i></a>
   </nav>
 </header>
   <main class="mainCart">
     <table class="cartSummary">
-        <tr>
-          <td>
-            <img src="http://localhost:3000/images/teddy_1.jpg" alt="Premier ours">
-          </td>
-          <td class="middleRow">
-            <p>Norbert</p>
-          </td>
-          <td>
-            <span>quantité : 2</span>
-          </td>
-          <td>
-            <p>total : 29,00€</p>
-          </td>
-          <td>
-          <i class="fas fa-trash-alt"></i>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="http://localhost:3000/images/teddy_1.jpg" alt="Premier ours"></td>
-          <td><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></td>
-          <td><p>29,00€</p></td>
-        </tr>
+      <tbody>
+          <tr>
+            <td>
+              <img src="http://localhost:3000/images/teddy_1.jpg" alt="Premier ours">
+            </td>
+            <td class="middleRow">
+              <h2>Norbert</h2>
+            </td>
+            <td>
+              <span>quantité : 2</span>
+            </td>
+            <td>
+              <p>total : 58,00€</p>
+            </td>
+            <td>
+            <i class="fas fa-trash-alt trashIcon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="http://localhost:3000/images/teddy_5.jpg" alt="Premier ours">
+            </td>
+            <td class="middleRow">
+              <h2>Garfunkel</h2>
+            </td>
+            <td>
+              <span>quantité : 1</span>
+            </td>
+            <td>
+              <p>total : 55,00€</p>
+            </td>
+            <td>
+            <i class="fas fa-trash-alt trashIcon"></i>
+            </td>
+          </tr>
+        </tbody>
     </table>
     <form class="form">
       <label for="lastname">Nom de famille</label>
@@ -61,9 +76,14 @@
       <label for="postalCode">Code postal</label>
       <input type="text" name="postalCode" placeholder="75000">
       <label for="town">Ville</label>
-      <input type="text" name="town" placeholder="Paris">
+      <input type="text" name="town" placeholder="Paris" class="lastInput">
+      <div class="test">
+        <a href="./confirmation.html">
+          <i class="fas fa-shopping-cart cartBtn"></i>
+          <input class="formBtn" type="button" value="Passer commande">
+        </a>
+      </div>
     </form>
-    <a href="./confirmation.html"><input class="formBtn" type="button" value="Passer commande"></a>
   </main>
   <footer>
   <ul>
