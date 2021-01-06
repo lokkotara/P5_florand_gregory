@@ -4,11 +4,20 @@
   flex-wrap: wrap;
   max-width: 1440px;
   margin: 0 auto;
-  h2 {
-    padding: 1.5rem 0;
-  }  
+  text-align: center;
+  // h2 {
+  //   padding: 1.5rem 0;
+  // }  
   .heading {
     margin: 0 2rem;
+  }
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    h2 {
+      width: 100%;
+    }
   }
 }
 .teddyCard {
