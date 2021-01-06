@@ -12,6 +12,14 @@ footer {
     display: flex;
     text-align: center;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
+  }
+  li {
+    align-self: center;
+  }
+  .socialIcons {
+    font-size: 3rem;
+    display: flex;
+    column-gap: 0.5rem;
   }
 }
