@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confirmation de commande</title>
+  <title>Confirmation de commande |Orinounours</title>
+  <link rel="icon" type="image/png" href=".\images\favicon.png">
   <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-
-  <!-- pages -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" <!-- pages
+    -->
   <script src="js/pages/home.js"></script>
   <!-- composants -->
 <script src="js/components/cart.js"></script>
@@ -17,37 +18,68 @@
 <script src="js/pageManager.js"></script>
 <script src="js/main.js" defer></script>
 </head>
+
 <body>
   <header class="header">
   <nav>
-    <a href="./index.html " class="iconHome"><i class="fas fa-home homeIcon"></i><span>Accueil</span></a>
-    <img src="./images/logo-removebg-preview.png" alt="Logo Orinoco" class="logo">
-    <a href="./panier.html" class="iconCart"><span> Mon panier</span><i class="fas fa-shopping-cart"></i></a>
+    <a href="./index.html " class="iconHome">
+      <i class="fas fa-home homeIcon"></i>
+      <span>Accueil</span>
+    </a>
+    <img src="./images/logo.png" alt="Logo Orinoco" class="logo">
+    <a href="./panier.html" class="iconCart">
+      <span>Mon panier</span>
+      <i class="fas fa-shopping-cart"></i>
+    </a>
   </nav>
 </header>
   <main class="mainConfirmation">
     <section class="confirmationWrapper">
       <h2>Merci pour votre commande !</h2>
-      <p>Votre commande <span id="orderId">n°53235456465</span></p><p> d'un montant de <span id="orderAmount">35,00€</span> a été validée.</p>
-      <p>Vous allez bientôt recevoir votre facture par mail. L'équipe d'Orinounours vous remercie pour votre confiance ! </p>
+      <p>Votre commande
+        <span id="orderId">n°53235456465</span>
+      </p>
+      <p>d'un montant de
+        <span id="orderAmount">35,00€</span>
+        a été validée.
+      </p>
+      <p>Vous allez bientôt recevoir votre facture par mail. L'équipe d'Orinounours vous remercie pour votre confiance !
+      </p>
     </section>
     <div>
-      <a href="./index.html"><i class="fas fa-arrow-left">  Retourner sur la page d'accueil</i></a>
+      <a href="./index.html">
+        <i class="fas fa-arrow-left">Retourner sur la page d'accueil
+        </i>
+      </a>
     </div>
   </main>
   <footer>
   <ul>
-    <li>Conditions d'utilisation</li>
+    <li>
+      <a href="#termsOfUse" target="_blank" rel="noopener noreferrer"> Conditions d'utilisation</a>
+    </li>
     <li>
       <div class="socialIcons">
-        <i class="fab fa-facebook-square"></i>
-        <i class="fab fa-twitter-square"></i>
-        <i class="fab fa-pinterest-square"></i>
-        <i class="fab fa-instagram-square"></i>
+        <a href="https://www.facebook.com/TeddyBears4U" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="https://twitter.com/giantteddy" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-twitter-square"></i>
+        </a>
+        <a href="https://www.pinterest.fr/search/pins/?q=teddy%20bears&rs=typed&term_meta[]=teddy%7Ctyped&term_meta[]=bears%7Ctyped"
+          target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-pinterest-square"></i>
+        </a>
+        <a href="https://www.instagram.com/explore/tags/teddybear/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram-square"></i>
+        </a>
       </div>
     </li>
-    <li>Mentions légales</li>
+    <li>
+      <a href="#legalNotice" target="_blank" rel="noopener noreferrer">Mentions légales</a>
+    </li>
   </ul>
 </footer>
 </body>
+
 </html>

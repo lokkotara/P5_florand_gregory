@@ -5,86 +5,102 @@
   justify-content: space-evenly;
   padding: 5rem 2rem;
   text-align: center;
+
   h2 {
     padding: 2rem 0;
   }
+
   table {
     font-size: 1.5rem;
+
     tbody {
       display: flex;
       flex-flow: wrap;
       row-gap: 2rem;
     }
+
     img {
       max-width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      border-radius: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     }
+
     td {
       padding: 0.5rem;
     }
+
     tr {
       display: flex;
-      background-color: #F3E6E8;
-      border-radius: 15px;
+      background-color: var(--Light-Color);
+      border-radius: 1.5rem;
       flex-flow: column wrap;
       width: 100%;
       align-items: center;
     }
+
     .trashIcon {
       font-size: 2rem;
-      color:#6b1108;
+      color: var(--Secondary-Color);
     }
+
     .totalCart {
       justify-content: flex-end;
       width: 100%;
-      border: 3px #b9abcf solid;
-      border-radius: 15px;
-      // background-color: #b9abcf;
+      border-radius: 1.5rem;
+      background-color: var(--Primary-Color);
       font-weight: bold;
     }
   }
 }
+
 .form {
   display: flex;
   flex-direction: column;
   padding-top: 2rem;
-  font-size: 1.5rem;
   max-width: 37rem;
   width: 100%;
   row-gap: 1rem;
+
   a {
     align-self: center;
+
     &:hover {
       color: white;
     }
   }
-  &Btn, .cartBtn {
+
+  &Btn,
+  .cartBtn {
     border: none;
     padding: 1.5rem;
   }
+
   &Btn {
     font-weight: bold;
     border-radius: 0 1.5rem 1.5rem 0;
-    background-color: #b9abcf;
+    background-color: var(--Primary-Color);
   }
-  .cartBtn {
-    padding-right: 0;
-    border-radius: 1.5rem 0 0 1.5rem;
-  }
+
   label {
     font-weight: bold;
-    font-size: 1.7rem;
   }
-}
-.test {
-  background-color: #b9abcf;
-  text-align: center;
-  align-self: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  border-radius: 1.5rem;
-  max-width: 40rem;
-}
-.lastInput {
-  margin-bottom: 2rem;
+
+  .lastInput {
+    margin-bottom: 2rem;
+  }
+
+  .orderBtn {
+    background-color: var(--Primary-Color);
+    text-align: center;
+    align-self: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 1.5rem;
+    max-width: 40rem;
+
+    .cartBtn {
+      padding-right: 0;
+      border-radius: 1.5rem 0 0 1.5rem;
+      font-size: 1.7rem;
+    }
+  }
 }

@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confirmation de commande</title>
+  <title>Confirmation de commande |Orinounours</title>
+  <link rel="icon" type="image/png" href=".\images\favicon.png">
   <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-
-  <!-- pages -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" <!-- pages
+    -->
   <script src="js/pages/home.js"></script>
   <%- include("../partials/scripts.html"); %>
 </head>
+
 <body>
   <%- include("../partials/header.html"); %>
   <main class="mainConfirmation">
     <section class="confirmationWrapper">
       <h2>Merci pour votre commande !</h2>
-      <p>Votre commande <span id="orderId">n°53235456465</span></p><p> d'un montant de <span id="orderAmount">35,00€</span> a été validée.</p>
-      <p>Vous allez bientôt recevoir votre facture par mail. L'équipe d'Orinounours vous remercie pour votre confiance ! </p>
+      <p>Votre commande
+        <span id="orderId">n°53235456465</span>
+      </p>
+      <p>d'un montant de
+        <span id="orderAmount">35,00€</span>
+        a été validée.
+      </p>
+      <p>Vous allez bientôt recevoir votre facture par mail. L'équipe d'Orinounours vous remercie pour votre confiance !
+      </p>
     </section>
     <div>
-      <a href="./index.html"><i class="fas fa-arrow-left">  Retourner sur la page d'accueil</i></a>
+      <a href="./index.html">
+        <i class="fas fa-arrow-left">Retourner sur la page d'accueil
+        </i>
+      </a>
     </div>
   </main>
   <%- include("../partials/footer.html"); %>
 </body>
+
 </html>

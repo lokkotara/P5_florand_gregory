@@ -7,7 +7,7 @@ class Home{
    * @constructor
    */
   constructor(domTarget){
-    ;
+    
     this.showAllProducts(domTarget);
   }
 
@@ -50,8 +50,6 @@ class Home{
           </figure>
         </a>
     </article>
-    
-    
-    `
+    `;
   }
 }

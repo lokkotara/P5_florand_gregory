@@ -1,5 +1,5 @@
 footer {
-  background-color: #f3e6e8;
+  background-color: var(--Light-Color);
   background-image: linear-gradient(190deg, #a5a4cb 0%, #d5d0e5 74%);
   display: flex;
   justify-content: center;
@@ -7,19 +7,26 @@ footer {
   height: 5rem;
   width: 100%;
   bottom: 0;
-  color: #2d2c2c;
+  color: var(--Dark-Color);
+
   ul {
     display: flex;
     text-align: center;
     justify-content: space-between;
     width: 100%;
   }
+
   li {
     align-self: center;
   }
+
   .socialIcons {
     font-size: 3rem;
     display: flex;
     column-gap: 0.5rem;
+  }
+
+  a:hover {
+    color: var(--Light-Color);
   }
 }

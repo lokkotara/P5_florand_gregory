@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page du produit</title>
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  <title>Vue détaillée du nounours | Orinounours</title>
 
-  <!-- pages -->
+  <link rel="icon" type="image/png" href=".\images\favicon.png">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" <!-- pages
+    -->
   <script src="js/pages/home.js"></script>
   <!-- composants -->
 <script src="js/components/cart.js"></script>
@@ -17,18 +20,27 @@
 <script src="js/pageManager.js"></script>
 <script src="js/main.js" defer></script>
 </head>
+
 <body>
   <header class="header">
   <nav>
-    <a href="./index.html " class="iconHome"><i class="fas fa-home homeIcon"></i><span>Accueil</span></a>
-    <img src="./images/logo-removebg-preview.png" alt="Logo Orinoco" class="logo">
-    <a href="./panier.html" class="iconCart"><span> Mon panier</span><i class="fas fa-shopping-cart"></i></a>
+    <a href="./index.html " class="iconHome">
+      <i class="fas fa-home homeIcon"></i>
+      <span>Accueil</span>
+    </a>
+    <img src="./images/logo.png" alt="Logo Orinoco" class="logo">
+    <a href="./panier.html" class="iconCart">
+      <span>Mon panier</span>
+      <i class="fas fa-shopping-cart"></i>
+    </a>
   </nav>
 </header>
   <main class="productMain mainWrapper">
     <h1>Envie d'en savoir plus ?</h1>
     <p class="heading">
-      Découvrez en détail l'univers de chacune de nos peluches. Des plus douces aux plus calînes, nos orinounours apportent du réconfort à n'importe quel moment de la journée. De plus, nous vous offrons la possibilité de personnaliser la couleur de votre ours en peluche parmi nos différents coloris.
+      Découvrez en détail l'univers de chacune de nos peluches. Des plus douces aux plus calînes, nos orinounours
+      apportent du réconfort à n'importe quel moment de la journée. De plus, nous vous offrons la possibilité de
+      personnaliser la couleur de votre ours en peluche parmi nos différents coloris.
     </p>
     <article class="singleProduct">
       <figure>
@@ -39,13 +51,14 @@
           <h2>Norbert</h2>
           <span class="price">29,00€</span>
         </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="first">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.</p>
         <div class="setQty">
-          <label for="changeQuantity">Quantité</label>
-          <input type="number">
           <div class="minusBtn">
             <i class="fas fa-minus"></i>
           </div>
+          <!-- <label for="changeQuantity">Quantité</label> -->
+          <input type="number" class="field">
           <div class="plusBtn">
             <i class="fas fa-plus"></i>
           </div>
@@ -71,17 +84,31 @@
   </main>
   <footer>
   <ul>
-    <li>Conditions d'utilisation</li>
+    <li>
+      <a href="#termsOfUse" target="_blank" rel="noopener noreferrer"> Conditions d'utilisation</a>
+    </li>
     <li>
       <div class="socialIcons">
-        <i class="fab fa-facebook-square"></i>
-        <i class="fab fa-twitter-square"></i>
-        <i class="fab fa-pinterest-square"></i>
-        <i class="fab fa-instagram-square"></i>
+        <a href="https://www.facebook.com/TeddyBears4U" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="https://twitter.com/giantteddy" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-twitter-square"></i>
+        </a>
+        <a href="https://www.pinterest.fr/search/pins/?q=teddy%20bears&rs=typed&term_meta[]=teddy%7Ctyped&term_meta[]=bears%7Ctyped"
+          target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-pinterest-square"></i>
+        </a>
+        <a href="https://www.instagram.com/explore/tags/teddybear/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram-square"></i>
+        </a>
       </div>
     </li>
-    <li>Mentions légales</li>
+    <li>
+      <a href="#legalNotice" target="_blank" rel="noopener noreferrer">Mentions légales</a>
+    </li>
   </ul>
 </footer>
 </body>
+
 </html>

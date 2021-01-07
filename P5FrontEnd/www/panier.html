@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue d'ensemble du panier</title>
+  <title>Vue d'ensemble du panier | Orinounours</title>
+  <link rel="icon" type="image/png" href=".\images\favicon.png">
   <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-
-  <!-- pages -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" <!-- pages
+    -->
   <script src="js/pages/home.js"></script>
   <!-- composants -->
 <script src="js/components/cart.js"></script>
@@ -17,64 +18,88 @@
 <script src="js/pageManager.js"></script>
 <script src="js/main.js" defer></script>
 </head>
+
 <body>
   <header class="header">
   <nav>
-    <a href="./index.html " class="iconHome"><i class="fas fa-home homeIcon"></i><span>Accueil</span></a>
-    <img src="./images/logo-removebg-preview.png" alt="Logo Orinoco" class="logo">
-    <a href="./panier.html" class="iconCart"><span> Mon panier</span><i class="fas fa-shopping-cart"></i></a>
+    <a href="./index.html " class="iconHome">
+      <i class="fas fa-home homeIcon"></i>
+      <span>Accueil</span>
+    </a>
+    <img src="./images/logo.png" alt="Logo Orinoco" class="logo">
+    <a href="./panier.html" class="iconCart">
+      <span>Mon panier</span>
+      <i class="fas fa-shopping-cart"></i>
+    </a>
   </nav>
 </header>
   <main class="mainCart">
     <h1>Vue d'ensemble de vos achats</h1>
     <p>
-      Parcourez en détail les produits que vous avez sélectionnés sur notre site. Pour finaliser votre commande, merci de remplir le formulaire ci-dessous.
+      Parcourez en détail les produits que vous avez sélectionnés sur notre site. Pour finaliser votre commande, merci
+      de remplir le formulaire ci-dessous.
     </p>
     <h2>Récapitulatif de votre panier</h2>
     <table class="cartSummary">
       <tbody>
-          <tr>
-            <td>
-              <img src="http://localhost:3000/images/teddy_1.jpg" alt="Premier ours">
-            </td>
-            <td>
-              <h3>Norbert</h3>
-            </td>
-            <td>
-              <span>quantité : 2</span>
-            </td>
-            <td>
-              <p>total : 58,00€</p>
-            </td>
-            <td>
+        <tr>
+          <td>
+            <img src="http://localhost:3000/images/teddy_1.jpg" alt="Premier ours">
+          </td>
+          <td>
+            <h3>Norbert</h3>
+          </td>
+          <td>
+            <div class="setQty">
+              <div class="minusBtn">
+                <i class="fas fa-minus"></i>
+              </div>
+              <input type="number" class="field">
+              <div class="plusBtn">
+                <i class="fas fa-plus"></i>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p>total = 58,00€</p>
+          </td>
+          <td>
             <i class="fas fa-trash-alt trashIcon"></i>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="http://localhost:3000/images/teddy_5.jpg" alt="Premier ours">
-            </td>
-            <td class="middleRow">
-              <h3>Garfunkel</h3>
-            </td>
-            <td>
-              <span>quantité : 1</span>
-            </td>
-            <td>
-              <p>total : 55,00€</p>
-            </td>
-            <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="http://localhost:3000/images/teddy_5.jpg" alt="Premier ours">
+          </td>
+          <td class="middleRow">
+            <h3>Garfunkel</h3>
+          </td>
+          <td>
+            <div class="setQty">
+              <div class="minusBtn">
+                <i class="fas fa-minus"></i>
+              </div>
+              <input type="number" class="field">
+              <div class="plusBtn">
+                <i class="fas fa-plus"></i>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p>total = 55,00€</p>
+          </td>
+          <td>
             <i class="fas fa-trash-alt trashIcon"></i>
-            </td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td class="totalCart">
-              <p>Total du panier : 113,00€</p>
-            </td>
-          </tr>
-        </tfoot>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="totalCart">
+            <p>Total du panier = 113,00€</p>
+          </td>
+        </tr>
+      </tfoot>
     </table>
     <h2>Formulaire de commande</h2>
     <form class="form">
@@ -83,14 +108,14 @@
       <label for="firstname">Prénom</label>
       <input type="text" name="firstname" placeholder="Jean">
       <label for="email">Adresse de messagerie</label>
-      <input type="email" name="email"placeholder="JeanDupont@gmail.com">
+      <input type="email" name="email" placeholder="JeanDupont@gmail.com">
       <label for="adress">Adresse</label>
       <input type="text" name="adress" placeholder="5 rue dupont Napoléon">
       <label for="postalCode">Code postal</label>
       <input type="text" name="postalCode" placeholder="75000">
       <label for="town">Ville</label>
       <input type="text" name="town" placeholder="Paris" class="lastInput">
-      <div class="test">
+      <div class="orderBtn">
         <a href="./confirmation.html">
           <i class="fas fa-shopping-cart cartBtn"></i>
           <input class="formBtn" type="button" value="Passer commande">
@@ -100,17 +125,31 @@
   </main>
   <footer>
   <ul>
-    <li>Conditions d'utilisation</li>
+    <li>
+      <a href="#termsOfUse" target="_blank" rel="noopener noreferrer"> Conditions d'utilisation</a>
+    </li>
     <li>
       <div class="socialIcons">
-        <i class="fab fa-facebook-square"></i>
-        <i class="fab fa-twitter-square"></i>
-        <i class="fab fa-pinterest-square"></i>
-        <i class="fab fa-instagram-square"></i>
+        <a href="https://www.facebook.com/TeddyBears4U" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="https://twitter.com/giantteddy" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-twitter-square"></i>
+        </a>
+        <a href="https://www.pinterest.fr/search/pins/?q=teddy%20bears&rs=typed&term_meta[]=teddy%7Ctyped&term_meta[]=bears%7Ctyped"
+          target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-pinterest-square"></i>
+        </a>
+        <a href="https://www.instagram.com/explore/tags/teddybear/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram-square"></i>
+        </a>
       </div>
     </li>
-    <li>Mentions légales</li>
+    <li>
+      <a href="#legalNotice" target="_blank" rel="noopener noreferrer">Mentions légales</a>
+    </li>
   </ul>
 </footer>
 </body>
+
 </html>

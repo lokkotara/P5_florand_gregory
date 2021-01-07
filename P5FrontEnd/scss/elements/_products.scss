@@ -20,7 +20,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
   }
 }
 
@@ -29,7 +28,7 @@
   justify-content: center;
   width: 90%;
   margin: 2rem 1rem;
-  background-color: #f3e6e8;
+  background-color: var(--Light-Color);
   border-radius: 2.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -40,7 +39,6 @@
 
   figure {
     width: 100%;
-    // max-width: 45rem;
   }
 
   figcaption {
@@ -51,7 +49,6 @@
     padding: 1.5rem;
 
     .price {
-      font-size: 1.5rem;
       font-weight: bold;
     }
 
@@ -61,19 +58,18 @@
 
     .addButton {
       margin: 0 auto;
-      border-radius: 15px;
+      border-radius: 1.5rem;
       flex: 1;
       padding: 2rem;
       border: 0;
       font-weight: bold;
-      font-size: 1.5rem;
-      background-color: #B9ABCF;
-      color: #2d2c2c;
+      background-color: var(--Primary-Color);
+      color: var(--Dark-Color);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
       &:hover {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        color: #f3e6e8;
+        color: var(--Light-Color);
       }
     }
   }
@@ -81,7 +77,6 @@
   img {
     width: 100%;
     object-fit: cover;
-    // max-height: 28rem;
     border-radius: 2.5rem 2.5rem 0 0;
 
   }

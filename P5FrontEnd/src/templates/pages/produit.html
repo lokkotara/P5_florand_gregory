@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page du produit</title>
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  <title>Vue détaillée du nounours | Orinounours</title>
 
-  <!-- pages -->
+  <link rel="icon" type="image/png" href=".\images\favicon.png">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" <!-- pages
+    -->
   <script src="js/pages/home.js"></script>
   <%- include("../partials/scripts.html"); %>
 </head>
+
 <body>
   <%- include("../partials/header.html"); %>
   <main class="productMain mainWrapper">
     <h1>Envie d'en savoir plus ?</h1>
     <p class="heading">
-      Découvrez en détail l'univers de chacune de nos peluches. Des plus douces aux plus calînes, nos orinounours apportent du réconfort à n'importe quel moment de la journée. De plus, nous vous offrons la possibilité de personnaliser la couleur de votre ours en peluche parmi nos différents coloris.
+      Découvrez en détail l'univers de chacune de nos peluches. Des plus douces aux plus calînes, nos orinounours
+      apportent du réconfort à n'importe quel moment de la journée. De plus, nous vous offrons la possibilité de
+      personnaliser la couleur de votre ours en peluche parmi nos différents coloris.
     </p>
     <article class="singleProduct">
       <figure>
@@ -27,13 +33,14 @@
           <h2>Norbert</h2>
           <span class="price">29,00€</span>
         </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="first">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.</p>
         <div class="setQty">
-          <label for="changeQuantity">Quantité</label>
-          <input type="number">
           <div class="minusBtn">
             <i class="fas fa-minus"></i>
           </div>
+          <!-- <label for="changeQuantity">Quantité</label> -->
+          <input type="number" class="field">
           <div class="plusBtn">
             <i class="fas fa-plus"></i>
           </div>
@@ -59,4 +66,5 @@
   </main>
   <%- include("../partials/footer.html"); %>
 </body>
+
 </html>
