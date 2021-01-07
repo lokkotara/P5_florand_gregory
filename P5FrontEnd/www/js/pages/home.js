@@ -36,20 +36,20 @@ class Home{
           <figure>
             <img src="${specs.imageUrl}" alt="Deuxième ours">
             <figcaption>
-              <h3>Arnold</h3>
+              <h3>${specs.name}</h3>
               <span class="displayColor">
                 <i class="fas fa-circle paleBrownColor"></i>
                 <i class="fas fa-circle darkBrownColor"></i>
                 <i class="fas fa-circle whiteColor"></i>
               </span>
-              <span class="price">39,00€</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <span class="price">${specs.price/100}€</span>
+              <p>${specs.description}
               </p>
               <input class="addButton" type="button" value="Ajouter au panier">
             </figcaption>
           </figure>
         </a>
-      </article>
+    </article>
     
     
     `

@@ -5,21 +5,25 @@
   max-width: 1440px;
   margin: 0 auto;
   text-align: center;
-  // h2 {
-  //   padding: 1.5rem 0;
-  // }  
+
   .heading {
     margin: 0 2rem;
   }
+
   section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     h2 {
       width: 100%;
     }
   }
+
+  .cardsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
 }
+
 .teddyCard {
   display: flex;
   justify-content: center;
@@ -27,28 +31,34 @@
   margin: 2rem 1rem;
   background-color: #f3e6e8;
   border-radius: 2.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+
   &:hover {
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
   }
+
   figure {
     width: 100%;
     // max-width: 45rem;
   }
+
   figcaption {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
+
     .price {
       font-size: 1.5rem;
       font-weight: bold;
     }
+
     p {
       padding: 1rem 0;
     }
+
     .addButton {
       margin: 0 auto;
       border-radius: 15px;
@@ -59,13 +69,15 @@
       font-size: 1.5rem;
       background-color: #B9ABCF;
       color: #2d2c2c;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
       &:hover {
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         color: #f3e6e8;
       }
     }
   }
+
   img {
     width: 100%;
     object-fit: cover;
@@ -74,34 +86,44 @@
 
   }
 }
+
 // couleurs de personnalisation
 .tanColor {
   color: #d2b48c;
 }
+
 .chocolateColor {
   color: #59210E;
 }
+
 .blackColor {
-  color:#423732;
+  color: #423732;
 }
+
 .whiteColor {
   color: #D6C3AB;
 }
+
 .paleBrownColor {
   color: #926D52;
 }
+
 .darkBrownColor {
   color: #442210;
 }
+
 .brownColor {
-  color:#C36615;
+  color: #C36615;
 }
+
 .blueColor {
-  color:#6699CC;
+  color: #6699CC;
 }
+
 .pinkColor {
   color: #EFC3C3;
 }
+
 .beigeColor {
   color: #DDCEB6;
 }
