@@ -36,31 +36,13 @@ class Home {
   productHtml(specs) {
     const colors = specs.colors;
 
-    // create a new div and set its attributes
-    let div = document.createElement('div');
-    div.className = 'div1';
-
-    for (let i = 0; i < colors.length; i++) {
-      const color = colors[i];
-      console.log(color);
-
-
-      // create a new text node and add it to the div
-      let span = document.createElement('span');
-      span.className = 'fas fa-circle';
-      span.style.color = color;
-      div.appendChild(span);
-
-      // add div to the document
-      document.body.appendChild(div);
-    }
     return `
     <article class="teddyCard">
         <a href="./produit.html">
           <figure>
             <img src="${specs.imageUrl}" alt="Deuxième ours">
             <figcaption>
-              <h3>${specs.name}</h3>
+              <h3 id="h3">${specs.name}</h3>
               <span class="displayColor">
                 ${specs.colors}
               </span>
@@ -75,3 +57,30 @@ class Home {
     `;
   }
 }
+
+const colors = ["blue", "red", "green"];
+
+// Crée un nouvel élément <span> avec une classe
+let createSpan = document.createElement("span");
+createSpan.className = "displayColors";
+
+// Obtient une référence à l'élément après lequel nous voulons insérer
+let placeToInsert = document.getElementById("h3");
+console.log(placeToInsert);
+
+// Obtient une référence à l'élément parent
+let parentDiv = placeToInsert.parentNode;
+
+for (let i = 0; i < colors.length; i++) {
+  const color = colors[i];
+  console.log(color);
+
+  // Créé une nouvelle icone avec la couleur l'intègre dans la <span>
+  let icon = document.createElement("i");
+  icon.className = "fas fa-circle";
+  icon.style.color = color;
+  createSpan.appendChild(icon);
+}
+
+// Insère le nouvel élément dans le DOM après le <H3>
+parentDiv.insertBefore(createSpan, placeToInsert.nextSibling);
