@@ -12,4 +12,23 @@ class DataManager{
     this.produits = await data.json();
     return this.produits;
   }
+
+  async getProduct(productId){
+    if (this.produits === null) await this.getAllProducts();
+    return this.extractFromArray(productId);
+  }
+  
+/**
+ * [extractFromArray description]
+ *
+ * @param   {String}  productId  [productId description]
+ *
+ * @return  {Object}             [return description]
+ */
+  extractFromArray(productId){
+    for(let i=0, size=this.produits.length; i<size; i++){
+      if (this.produits[i]._id === productId) return this.produits[i];
+    }
+    return {};
+  }
 }

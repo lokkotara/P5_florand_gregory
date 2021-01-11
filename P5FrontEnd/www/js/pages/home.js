@@ -43,12 +43,9 @@ class Home {
             <img src="${specs.imageUrl}" alt="Deuxième ours">
             <figcaption>
               <h3 id="h3">${specs.name}</h3>
-              <span class="displayColor">
-                ${specs.colors}
-              </span>
-              <span class="price">${specs.price/100}€</span>
-              <p>${specs.description}
-              </p>
+              <span class="displayColor">${this.showColor(specs.colors)}</span>
+              <span class="price">${specs.price / 100}€</span>
+              <p>${specs.description}</p>
               <input class="addButton" type="button" value="Ajouter au panier">
             </figcaption>
           </figure>
@@ -56,31 +53,33 @@ class Home {
     </article>
     `;
   }
+
+  /**
+   * génère la lise des couleurs
+   *
+   * @param   {Array}  colors  les variantes
+   *
+   * @return  {String}         les couleurs sous forme html
+   */
+  showColor(colors){
+    let html = "";
+    for (let i = 0, size = colors.length; i < size; i++) {
+      html += `<i class="fas fa-circle ${this.convertToClassName(colors[i])}" ></i>`;
+    }
+    return html;
+  }
+
+
+  convertToClassName(color){
+    let colors =  color
+      .toLowerCase()
+      .split(" ");
+
+    let maj;
+    for(let i=1, size= colors.length; i< size; i++){
+      maj = colors[i].slice(0,1).toUpperCase();
+      colors[i] = maj + colors[i].slice(1);
+    }
+    return colors.join("")+"Color";
+  }
 }
-
-const colors = ["blue", "red", "green"];
-
-// Crée un nouvel élément <span> avec une classe
-let createSpan = document.createElement("span");
-createSpan.className = "displayColors";
-
-// Obtient une référence à l'élément après lequel nous voulons insérer
-let placeToInsert = document.getElementById("h3");
-console.log(placeToInsert);
-
-// Obtient une référence à l'élément parent
-let parentDiv = placeToInsert.parentNode;
-
-for (let i = 0; i < colors.length; i++) {
-  const color = colors[i];
-  console.log(color);
-
-  // Créé une nouvelle icone avec la couleur l'intègre dans la <span>
-  let icon = document.createElement("i");
-  icon.className = "fas fa-circle";
-  icon.style.color = color;
-  createSpan.appendChild(icon);
-}
-
-// Insère le nouvel élément dans le DOM après le <H3>
-parentDiv.insertBefore(createSpan, placeToInsert.nextSibling);
