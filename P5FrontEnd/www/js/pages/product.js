@@ -19,8 +19,6 @@ class Product {
     domTarget.innerHTML = this.productHtml(produit);
   }
 
-  //génère les couleurs de personnalisation
-
 
   /**
    * génère le HTML d'un produit
@@ -34,38 +32,81 @@ class Product {
     const colors = specs.colors;
 
     return `
-    <article class="teddyCard">
-        <a href="./produit.html">
-          <figure>
-            <img src="${specs.imageUrl}" alt="Deuxième ours">
-            <figcaption>
-              <h3 id="h3">${specs.name}</h3>
-              <span class="displayColor">${this.showColor(specs.colors)}</span>
-              <span class="price">${specs.price / 100}€</span>
-              <p>${specs.description}</p>
-              <input class="addButton" type="button" value="Ajouter au panier">
-            </figcaption>
-          </figure>
-        </a>
+    <article class="singleProduct">
+      <figure>
+        <img src="${specs.imageUrl}" alt="Ours en peluche marron">
+      </figure>
+      <section>
+        <div class="productHeading">
+          <h2>${specs.name}</h2>
+          <span class="price">${specs.price / 100}€</span>
+        </div>
+        <p class="first">${specs.description}</p>
+        <div class="setQty">
+          <div class="minusBtn">
+            <i class="fas fa-minus"></i>
+          </div>
+          <input type="number" class="field">
+          <div class="plusBtn">
+            <i class="fas fa-plus"></i>
+          </div>
+        </div>
+        <div class="customize">
+          <div class="displayColor">
+            ${this.showColor(specs.colors)}
+          </div>
+          <label for="colors">Choisir sa couleur </label>
+          <select name="colors" id="colors">
+            ${this.showOptionColor(specs.colors)}
+          </select>
+        </div>
+        <input class="addButton" type="button" value="Ajouter au panier">
+      </section>
     </article>
     `;
+    // <article class="teddyCard">
+    //     <a href="./produit.html">
+    //       <figure>
+    //         <img src="${specs.imageUrl}" alt="Deuxième ours">
+    //         <figcaption>
+    //           <h3 id="h3">${specs.name}</h3>
+    //           <span class="displayColor">${this.showColor(specs.colors)}</span>
+    //           <span class="price">${specs.price / 100}€</span>
+    //           <p>${specs.description}</p>
+    //           <input class="addButton" type="button" value="Ajouter au panier">
+    //         </figcaption>
+    //       </figure>
+    //     </a>
+    // </article>
   }
 
   /**
-   * génère la lise des couleurs
+   * génère la liste des couleurs
    *
    * @param   {Array}  colors  les variantes
    *
    * @return  {String}         les couleurs sous forme html
    */
-  showColor(colors){
+  showOptionColor(colors){
     let html = "";
     for (let i = 0, size = colors.length; i < size; i++) {
-      html += `<i class="fas fa-circle ${this.convertToClassName(colors[i])}" ></i>`;
+      html += ` <option value="firstChoice">${this.convertToDisplayName(colors[i])}</option>`;
     }
     return html;
   }
+  
+  convertToDisplayName(color){
+    let colors =  color
+      .toLowerCase()
+      .split(" ");
 
+    let maj;
+    for(let i=0, size= colors.length; i< size; i++){
+      maj = colors[i].slice(0,1).toUpperCase();
+      colors[i] = maj + colors[i].slice(1);
+    }
+    return colors.join(" ");
+  }
 
   convertToClassName(color){
     let colors =  color
@@ -78,5 +119,13 @@ class Product {
       colors[i] = maj + colors[i].slice(1);
     }
     return colors.join("")+"Color";
+  }
+
+  showColor(colors){
+    let html = "";
+    for (let i = 0, size = colors.length; i < size; i++) {
+      html += `<i class="fas fa-circle ${this.convertToClassName(colors[i])}" ></i>`;
+    }
+    return html;
   }
 }

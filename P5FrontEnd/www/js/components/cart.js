@@ -28,8 +28,8 @@ class Cart{
     this.DOM.innerHTML = `
     
     <a href="./panier.html" class="iconCart">
-      <span>Mon panier${this.content.length}</span>
-      <i class="fas fa-shopping-cart"></i>
+      <span>Mon panier</span>
+      <i class="fas fa-shopping-cart">${this.content.length}</i>
     </a>
     
     `
