@@ -28,7 +28,6 @@ class Product {
    * @return  {String}         le html du produit
    */
   productHtml(specs) {
-    console.log(specs);
     const colors = specs.colors;
 
     return `
@@ -46,7 +45,7 @@ class Product {
           <div class="minusBtn">
             <i class="fas fa-minus"></i>
           </div>
-          <input type="number" class="field">
+          <input type="number" class="field" id="field">
           <div class="plusBtn">
             <i class="fas fa-plus"></i>
           </div>
@@ -60,24 +59,10 @@ class Product {
             ${this.showOptionColor(specs.colors)}
           </select>
         </div>
-        <input class="addButton" type="button" value="Ajouter au panier">
+        <input class="addButton" id="addButton" type="button" value="Ajouter au panier" onclick="'click', addButton">
       </section>
     </article>
     `;
-    // <article class="teddyCard">
-    //     <a href="./produit.html">
-    //       <figure>
-    //         <img src="${specs.imageUrl}" alt="Deuxième ours">
-    //         <figcaption>
-    //           <h3 id="h3">${specs.name}</h3>
-    //           <span class="displayColor">${this.showColor(specs.colors)}</span>
-    //           <span class="price">${specs.price / 100}€</span>
-    //           <p>${specs.description}</p>
-    //           <input class="addButton" type="button" value="Ajouter au panier">
-    //         </figcaption>
-    //       </figure>
-    //     </a>
-    // </article>
   }
 
   /**
@@ -87,45 +72,48 @@ class Product {
    *
    * @return  {String}         les couleurs sous forme html
    */
-  showOptionColor(colors){
+  showOptionColor(colors) {
     let html = "";
     for (let i = 0, size = colors.length; i < size; i++) {
       html += ` <option value="firstChoice">${this.convertToDisplayName(colors[i])}</option>`;
     }
     return html;
   }
-  
-  convertToDisplayName(color){
-    let colors =  color
+
+  convertToDisplayName(color) {
+    let colors = color
       .toLowerCase()
       .split(" ");
 
     let maj;
-    for(let i=0, size= colors.length; i< size; i++){
-      maj = colors[i].slice(0,1).toUpperCase();
+    for (let i = 0, size = colors.length; i < size; i++) {
+      maj = colors[i].slice(0, 1).toUpperCase();
       colors[i] = maj + colors[i].slice(1);
     }
     return colors.join(" ");
   }
 
-  convertToClassName(color){
-    let colors =  color
+  convertToClassName(color) {
+    let colors = color
       .toLowerCase()
       .split(" ");
 
     let maj;
-    for(let i=1, size= colors.length; i< size; i++){
-      maj = colors[i].slice(0,1).toUpperCase();
+    for (let i = 1, size = colors.length; i < size; i++) {
+      maj = colors[i].slice(0, 1).toUpperCase();
       colors[i] = maj + colors[i].slice(1);
     }
-    return colors.join("")+"Color";
+    return colors.join("") + "Color";
   }
 
-  showColor(colors){
+  showColor(colors) {
     let html = "";
     for (let i = 0, size = colors.length; i < size; i++) {
       html += `<i class="fas fa-circle ${this.convertToClassName(colors[i])}" ></i>`;
     }
     return html;
   }
+
+  
+  
 }

@@ -23,9 +23,6 @@ class Home {
 
   }
 
-  //génère les couleurs de personnalisation
-
-
   /**
    * génère le HTML d'un produit
    *
@@ -34,7 +31,7 @@ class Home {
    * @return  {String}         le html du produit
    */
   productHtml(specs) {
-    const colors = specs.colors;
+    // const colors = specs.colors;
 
     return `
     <article class="teddyCard">
