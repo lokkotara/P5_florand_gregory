@@ -35,7 +35,7 @@ class Home {
 
     return `
     <article class="teddyCard">
-        <a href="./produit.html">
+        <a href="./produit.html?_id=${specs._id}">
           <figure>
             <img src="${specs.imageUrl}" alt="Deuxième ours">
             <figcaption>

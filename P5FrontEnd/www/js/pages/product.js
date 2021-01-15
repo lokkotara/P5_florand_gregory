@@ -93,6 +93,14 @@ class Product {
     return colors.join(" ");
   }
 
+  showColor(colors) {
+    let html = "";
+    for (let i = 0, size = colors.length; i < size; i++) {
+      html += `<i class="fas fa-circle ${this.convertToClassName(colors[i])}" ></i>`;
+    }
+    return html;
+  }
+
   convertToClassName(color) {
     let colors = color
       .toLowerCase()
@@ -106,13 +114,7 @@ class Product {
     return colors.join("") + "Color";
   }
 
-  showColor(colors) {
-    let html = "";
-    for (let i = 0, size = colors.length; i < size; i++) {
-      html += `<i class="fas fa-circle ${this.convertToClassName(colors[i])}" ></i>`;
-    }
-    return html;
-  }
+  
 
   
   

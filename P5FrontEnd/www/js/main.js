@@ -6,14 +6,11 @@ const orinoco = {
 orinoco.cart = new Cart(document.querySelector("nav"));
 
 
-
-
-
-
-new Home(document.querySelector("div.cardsWrapper"));
-
-// new Product(document.querySelector("div.singleCardWrapper"), "5beaa8bf1c9d440000a57d94");
-// new Product(document.querySelector("div.singleCardWrapper"), "5be9c8541c9d440000665243");
-// new Product(document.querySelector("div.singleCardWrapper"), "5beaaa8f1c9d440000a57d95");
-// new Product(document.querySelector("div.singleCardWrapper"), "5beaabe91c9d440000a57d96");
-// new Product(document.querySelector("div.singleCardWrapper"), "5beaacd41c9d440000a57d97");
+let params = (new URL(document.location)).searchParams;
+let id = params.get("_id");
+var url = window.location.pathname;
+if (url == "/" || url == "/index.html") {
+  new Home(document.querySelector("div.cardsWrapper"));
+} else if (url == "/produit.html") {
+  new Product(document.querySelector("div.singleCardWrapper"), id);
+}
