@@ -28,7 +28,7 @@ class Product {
    * @return  {String}         le html du produit
    */
   productHtml(specs) {
-    const colors = specs.colors;
+    // const colors = specs.colors;
 
     return `
     <article class="singleProduct">

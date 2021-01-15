@@ -1,0 +1,3 @@
+class Confirmation {
+  constructor
+}
