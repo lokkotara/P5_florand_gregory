@@ -17,9 +17,17 @@ class Product {
   async showProduct(domTarget, productId) {
     const produit = await orinoco.dataManager.getProduct(productId);
     domTarget.innerHTML = this.productHtml(produit);
+    this.initQtySelector();
   }
+  initQtySelector() {
+    let getMinus = document.getElementById("minusBtn");
+    let getPlus = document.getElementById("plusBtn");
+    let getBtn = document.getElementById("addButton");
 
-
+    getMinus.addEventListener("click", this.decrementInput);
+    getPlus.addEventListener("click", this.incrementInput);
+    getBtn.addEventListener("click", this.addToCart);
+  }
   /**
    * génère le HTML d'un produit
    *
@@ -30,7 +38,7 @@ class Product {
   productHtml(specs) {
     // const colors = specs.colors;
 
-    return `
+    return /*html*/`
     <article class="singleProduct">
       <figure>
         <img src="${specs.imageUrl}" alt="Ours en peluche marron">
@@ -46,7 +54,7 @@ class Product {
             <i class="fas fa-minus"></i>
           </div>
           <input type="number" class="field" id="field" value="1">
-          <div class="plusBtn">
+          <div class="plusBtn" id="plusBtn">
             <i class="fas fa-plus"></i>
           </div>
         </div>
@@ -114,15 +122,26 @@ class Product {
     }
     return colors.join("") + "Color";
   }
-  
-  
-  
-  
-}
- var getMinus = document.getElementById("minusBtn");
-console.log(getMinus);
-getMinus.addEventListener("click", incrementInput);
 
-function incrementInput() {
-  console.log("bouton moins connecté");
+  decrementInput() {
+    let getInput = document.getElementById("field").value;
+    let stringToNumber = parseInt(getInput, 10);
+    if (getInput > 1) {
+      let newInput = stringToNumber -= 1;
+      document.getElementById("field").value = newInput;
+    }
+  }
+
+  incrementInput() {
+    let getInput = document.getElementById("field").value;
+    let stringToNumber = parseInt(getInput, 10);
+    let newInput = stringToNumber += 1;
+    document.getElementById("field").value = newInput;
+  }
+
+  addToCart() {
+    let getInput = document.getElementById("field").value;
+    let stringToNumber = parseInt(getInput, 10);
+    console.log("Vous avez ajouté " + stringToNumber + " nounours au panier");
+  }
 }

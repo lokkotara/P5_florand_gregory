@@ -50,9 +50,7 @@ class Home {
     </article>
     `;
   }
-  addToCart() {
-    orinoco.cart.add("5be9c8541c9d440000665243");
-  }
+ 
   /**
    * génère la lise des couleurs
    *
