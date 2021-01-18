@@ -43,14 +43,16 @@ class Home {
               <span class="displayColor">${this.showColor(specs.colors)}</span>
               <span class="price">${specs.price / 100}€</span>
               <p>${specs.description}</p>
-              <input class="addButton" type="button" value="Ajouter au panier">
+              <input class="addButton" type="button" value="En savoir plus">
             </figcaption>
           </figure>
         </a>
     </article>
     `;
   }
-
+  addToCart() {
+    orinoco.cart.add("5be9c8541c9d440000665243");
+  }
   /**
    * génère la lise des couleurs
    *

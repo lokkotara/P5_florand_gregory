@@ -59,11 +59,12 @@ class Product {
             ${this.showOptionColor(specs.colors)}
           </select>
         </div>
-        <input class="addButton" id="addButton" type="button" value="Ajouter au panier" onclick="'click', addButton">
+        <input class="addButton" id="addButton" type="button" value="Ajouter au panier">
       </section>
     </article>
     `;
   }
+
 
   /**
    * génère la liste des couleurs
@@ -114,8 +115,8 @@ class Product {
     return colors.join("") + "Color";
   }
 
-  
 
-  
-  
+
+
+
 }

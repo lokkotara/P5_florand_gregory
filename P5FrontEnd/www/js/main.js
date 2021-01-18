@@ -5,7 +5,6 @@ const orinoco = {
 
 orinoco.cart = new Cart(document.querySelector("nav"));
 
-
 let params = (new URL(document.location)).searchParams;
 let id = params.get("_id");
 
