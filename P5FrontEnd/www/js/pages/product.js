@@ -42,10 +42,10 @@ class Product {
         </div>
         <p class="first">${specs.description}</p>
         <div class="setQty">
-          <div class="minusBtn">
+          <div class="minusBtn" id="minusBtn">
             <i class="fas fa-minus"></i>
           </div>
-          <input type="number" class="field" id="field">
+          <input type="number" class="field" id="field" value="1">
           <div class="plusBtn">
             <i class="fas fa-plus"></i>
           </div>
@@ -114,9 +114,15 @@ class Product {
     }
     return colors.join("") + "Color";
   }
+  
+  
+  
+  
+}
+ var getMinus = document.getElementById("minusBtn");
+console.log(getMinus);
+getMinus.addEventListener("click", incrementInput);
 
-
-
-
-
+function incrementInput() {
+  console.log("bouton moins connecté");
 }

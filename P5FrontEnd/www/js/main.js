@@ -19,4 +19,3 @@ if (url == "/" || url == "/index.html") {
 } else {
   new Confirmation(document.querySelector("div.cardsWrapper"));
 }
-
