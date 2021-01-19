@@ -36,5 +36,7 @@ class Cart{
   add(productId){
     this.content.push(productId);
     this.render();
+    localStorage.setItem("value", JSON.stringify(orinoco.cart));
+    console.log(JSON.parse(localStorage.getItem("value")));
   }
 }
