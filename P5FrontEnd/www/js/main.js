@@ -10,6 +10,7 @@ let id = params.get("_id");
 
 
 var url = window.location.pathname;
+// console.log(url)
 if (url == "/" || url == "/index.html") {
   new Home(document.querySelector("div.cardsWrapper"));
 } else if (url == "/produit.html") {
@@ -17,5 +18,5 @@ if (url == "/" || url == "/index.html") {
 } else if (url == "/panier.html") {
   new Panier(document.querySelector("tbody.cartSummaryBody"));
 } else {
-  new Confirmation(document.querySelector("div.cardsWrapper"));
+  // new Confirmation(document.querySelector("div.cardsWrapper"));
 }

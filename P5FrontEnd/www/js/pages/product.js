@@ -141,6 +141,7 @@ class Product {
     let getInput = document.getElementById("field").value;
     let stringToNumber = parseInt(getInput, 10);
     console.log("Vous avez ajouté " + stringToNumber + " nounours au panier");
-    orinoco.cart.add(id);
+    orinoco.cart.add(id, stringToNumber);
   }
+
 }

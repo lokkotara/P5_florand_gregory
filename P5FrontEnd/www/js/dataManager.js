@@ -1,6 +1,6 @@
 class DataManager{
 
-  produits = null;
+  produits=null;
 
   constructor(src){
     this.src = src;
@@ -30,5 +30,13 @@ class DataManager{
       if (this.produits[i]._id === productId) return this.produits[i];
     }
     return {};
+  }
+
+  saveCart(cart){
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  getCart(){
+    return localStorage.getItem("cart") === null ? [] : JSON.parse(localStorage.getItem("cart"));
   }
 }

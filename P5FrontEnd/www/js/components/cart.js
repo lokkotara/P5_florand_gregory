@@ -6,6 +6,7 @@ class Cart{
   DOM;
 
   /**
+   * contient tous les éléments du panier
    * @type {Array}
    */
   content = [];
@@ -18,6 +19,8 @@ class Cart{
    * @constructor
    */
   constructor(domTarget){
+    this.content = orinoco.dataManager.getCart();
+
     this.DOM = document.createElement("cart");
     domTarget.appendChild(this.DOM);
     this.render();
@@ -33,10 +36,19 @@ class Cart{
     `
   }
 
-  add(productId){
-    this.content.push(productId);
+  add(productId, qty=1){
+    for(let i=1; i <= qty; i++){
+      this.content.push(productId);
+    }
     this.render();
-    localStorage.setItem("value", JSON.stringify(orinoco.cart));
-    console.log(JSON.parse(localStorage.getItem("value")));
+    orinoco.dataManager.saveCart(this.content);
   }
+
+  remove(productId){
+    const id= this.content.indexOf(productId);
+    this.content.splice(id, 1);
+    this.render();
+    orinoco.dataManager.saveCart(this.content);
+  }
+
 }
