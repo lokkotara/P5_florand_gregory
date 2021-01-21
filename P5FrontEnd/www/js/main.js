@@ -1,22 +1,26 @@
 /*eslint-disable no-unused-vars*/
 const orinoco = {
-  dataManager : new DataManager("http://localhost:3000/api/teddies/")
+  dataManager: new DataManager("http://localhost:3000/api/teddies/")
 };
-
 orinoco.cart = new Cart(document.querySelector("nav"));
+orinoco.page = definePage();
 
-let params = (new URL(document.location)).searchParams;
-let id = params.get("_id");
-
-
-var url = window.location.pathname;
-// console.log(url)
-if (url == "/" || url == "/index.html") {
-  new Home(document.querySelector("div.cardsWrapper"));
-} else if (url == "/produit.html") {
-  new Product(document.querySelector("div.singleCardWrapper"), id);
-} else if (url == "/panier.html") {
-  new Panier(document.querySelector("tbody.cartSummaryBody"));
-} else {
-  // new Confirmation(document.querySelector("div.cardsWrapper"));
+/**
+ * define the page content
+ *
+ * @return  {Home|Product|Panier}  returns a page
+ */
+function definePage() {
+  let params = (new URL(document.location)).searchParams;
+  var url = window.location.pathname;
+  // console.log(url)
+  if (url == "/" || url == "/index.html") {
+    return new Home(document.querySelector("div.cardsWrapper"));
+  } else if (url == "/produit.html") {
+    return new Product(document.querySelector("div.singleCardWrapper"), params.get("_id"));
+  } else if (url == "/panier.html") {
+    return new Panier(document.querySelector("tbody.cartSummaryBody"));
+  } else {
+    // new Confirmation(document.querySelector("div.cardsWrapper"));
+  }
 }

@@ -12,7 +12,7 @@ class Cart{
   content = [];
 
   /**
-   * [constructor description]
+   * Cart's class constructor
    *
    * @param   {HTMLElement}  domTarget  [domTarget description]
    *
@@ -20,12 +20,10 @@ class Cart{
    */
   constructor(domTarget){
     this.content = orinoco.dataManager.getCart();
-
     this.DOM = document.createElement("cart");
     domTarget.appendChild(this.DOM);
     this.render();
   }
-
 
   render(){
     this.DOM.innerHTML = `
@@ -33,7 +31,7 @@ class Cart{
       <span>Mon panier</span>
       <i class="fas fa-shopping-cart">${this.content.length}</i>
     </a>
-    `
+    `;
   }
 
   add(productId, qty=1){
@@ -50,5 +48,4 @@ class Cart{
     this.render();
     orinoco.dataManager.saveCart(this.content);
   }
-
 }

@@ -12,7 +12,7 @@ class DataManager{
     this.produits = await data.json();
     return this.produits;
   }
-
+  
   async getProduct(productId){
     if (this.produits === null) await this.getAllProducts();
     return this.extractFromArray(productId);
