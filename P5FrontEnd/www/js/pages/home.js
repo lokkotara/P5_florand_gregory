@@ -1,4 +1,5 @@
 /*eslint-disable no-unused-vars*/
+/* global orinoco */
 class Home {
   /**
    * [constructor description]

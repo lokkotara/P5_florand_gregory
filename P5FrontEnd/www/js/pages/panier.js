@@ -31,6 +31,8 @@ class Panier {
       html = this.templateError();
     }
     this.domTarget.innerHTML = html;
+    console.log( Object.entries(this.content));
+
   }
 
   /**
@@ -72,7 +74,7 @@ class Panier {
       </td>
       <td>
         <div class="setQty">
-          <div class="minusBtn">
+          <div class="minusBtn" onclick="orinoco.page.decrement('${specs._id}')">
             <i class="fas fa-minus"></i>
           </div>
           <input type="number" class="field" value="${specs.qte}">
@@ -92,17 +94,30 @@ class Panier {
   }
 
   templateEmptyCart(){
-    return "votre panier est vide, pensez à dépenser des sous :)";
+    return `
+        <p class="contentText">votre panier est vide, pensez à dépenser des sous :)</p>
+    `;
   }
 
   templateError(){
-    return "Houston on a un problème";
+    return `
+        <p class="contentText">Houston on a un problème</p>
+    `;
   }
 
   increment(id){
     orinoco.cart.add(id);
     this.content[id].qte++;    
     this.displayCart();
+  }
+  decrement(id){
+    orinoco.cart.remove(id);
+    this.content[id].qte--;    
+    this.displayCart();
+    if(this.content[id].qte === 0) {
+      alert("Vous venez de supprimer cet article.");
+      window.location.reload();
+    };
   }
 
   /*

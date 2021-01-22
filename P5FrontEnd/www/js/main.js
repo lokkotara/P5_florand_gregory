@@ -13,7 +13,6 @@ orinoco.page = definePage();
 function definePage() {
   let params = (new URL(document.location)).searchParams;
   var url = window.location.pathname;
-  // console.log(url)
   if (url == "/" || url == "/index.html") {
     return new Home(document.querySelector("div.cardsWrapper"));
   } else if (url == "/produit.html") {

@@ -36,7 +36,7 @@ class Product {
    * @return  {String}         le html du produit
    */
   productHtml(specs) {
-    return /*html*/`
+    return /*html*/ `
     <article class="singleProduct">
       <figure>
         <img src="${specs.imageUrl}" alt="Ours en peluche marron">
@@ -138,10 +138,13 @@ class Product {
   }
 
   addToCart() {
+    let params = (new URL(document.location)).searchParams;
+    let produit = params.get("_id");
     let getInput = document.getElementById("field").value;
     let stringToNumber = parseInt(getInput, 10);
-    console.log("Vous avez ajouté " + stringToNumber + " nounours au panier");
-    orinoco.cart.add(id, stringToNumber);
+    orinoco.cart.add(produit, stringToNumber);
+    alert("Vous avez ajouté " + stringToNumber + " nounours au panier.");
+    document.location.href="./index.html ";
   }
 
 }
