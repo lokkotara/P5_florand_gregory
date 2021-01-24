@@ -44,7 +44,7 @@ class Product {
       <section>
         <div class="productHeading">
           <h2>${specs.name}</h2>
-          <span class="price">${specs.price / 100}€</span>
+          <span class="price">${specs.price / 100},00€</span>
         </div>
         <p class="first">${specs.description}</p>
         <div class="setQty">

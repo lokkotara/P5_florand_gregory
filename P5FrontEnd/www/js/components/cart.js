@@ -1,4 +1,4 @@
-class Cart{
+class Cart {
 
   /**
    * @type {HTMLElement}
@@ -18,14 +18,14 @@ class Cart{
    *
    * @constructor
    */
-  constructor(domTarget){
+  constructor(domTarget) {
     this.content = orinoco.dataManager.getCart();
     this.DOM = document.createElement("cart");
     domTarget.appendChild(this.DOM);
     this.render();
   }
 
-  render(){
+  render() {
     this.DOM.innerHTML = `
     <a href="./panier.html" class="iconCart">
       <span>Mon panier</span>
@@ -34,18 +34,29 @@ class Cart{
     `;
   }
 
-  add(productId, qty=1){
-    for(let i=1; i <= qty; i++){
+  add(productId, qty = 1) {
+    for (let i = 1; i <= qty; i++) {
       this.content.push(productId);
     }
     this.render();
     orinoco.dataManager.saveCart(this.content);
   }
 
-  remove(productId){
-    const id= this.content.indexOf(productId);
+  remove(productId) {
+    const id = this.content.indexOf(productId);
+    console.log(id);
     this.content.splice(id, 1);
     this.render();
     orinoco.dataManager.saveCart(this.content);
+  }
+  delete(productId, qty) {
+    for (let i = 1; i <= qty; i++) {
+      const id = this.content.indexOf(productId);
+      this.content.splice(id, 1);
+    }
+    console.log(qty);
+    this.render();
+    orinoco.dataManager.saveCart(this.content);
+
   }
 }

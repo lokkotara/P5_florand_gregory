@@ -5,11 +5,10 @@ class Panier {
    * le contenu du panier
    * @type {Object}
    */
-  content={};
+  content = {};
 
   constructor(domTarget) {
     this.domTarget = domTarget;
-    console.log(orinoco.cart.content);
     this.arrayToObject(orinoco.cart.content);
     this.displayCart();
   }
@@ -23,21 +22,20 @@ class Panier {
       for (const [key, value] of Object.entries(this.content)) {
         i++;
         specs = await orinoco.dataManager.getProduct(key);
-        console.log(value);
-        html += this.templateProduit({ ...value, ...specs, number: i });
+        html += this.templateProduit({
+          ...value,
+          ...specs,
+          number: i
+        });
       }
       if (html === "") html = this.templateEmptyCart();
-    }
-    catch (err) {
+    } catch (err) {
       console.error(err);
       html = this.templateError();
     }
     this.domTarget.innerHTML = html;
-    console.log( Object.entries(this.content));
-    console.log(this.content);
 
   }
-
   /**
    * [arrayToObject description]
    *
@@ -47,12 +45,14 @@ class Panier {
    */
   arrayToObject(list) {
     this.content = {};
-    console.log(this.content);
     for (let i = 0, size = list.length; i < size; i++) {
-      if (this.content[list[i]] === undefined) this.content[list[i]] = { qte: 1 };
+      if (this.content[list[i]] === undefined) this.content[list[i]] = {
+        qte: 1
+      };
       else this.content[list[i]].qte++;
     }
   }
+
 
   /**
    * html template of a product 
@@ -88,53 +88,63 @@ class Panier {
         </div>
       </td>
       <td>
-        <p>total = ${specs.qte * specs.price / 100}€</p>
+        <p>total = ${specs.qte * specs.price / 100},00€</p>
       </td>
       <td>
-        <i class="fas fa-trash-alt trashIcon"></i>
+        <i class="fas fa-trash-alt trashIcon" onclick="orinoco.page.deleteLine('${specs._id}','${specs.qte}')"></i>
       </td>
     </tr>
   `;
   }
 
-  DeleteLine(){
-
-  }
-
-  templateEmptyCart(){
+  templateEmptyCart() {
     return `
-        <p class="contentText">votre panier est vide, pensez à dépenser des sous :)</p>
+      <p class="contentText">Votre panier est vide, pensez à ajouter des articles</p>
     `;
   }
 
-  templateError(){
+  templateError() {
     return `
-        <p class="contentText">Houston on a un problème</p>
+      <p class="contentText">Houston on a un problème</p>
     `;
   }
 
-  increment(id){
+  getTotal(id) {
+    specs = orinoco.dataManager.getProduct(id);
+    let sum = specs.qte * specs.price / 100;
+    console.log(sum);
+  }
+
+  displayTotal(sum) {
+    return /*html*/ `
+      <td class="totalCart">
+        <p>Total du panier = ${sum},00€</p>
+      </td>
+    `;
+  }
+
+  increment(id) {
     orinoco.cart.add(id);
-    this.content[id].qte++;    
+    this.content[id].qte++;
     this.displayCart();
   }
-  decrement(id){
+
+  decrement(id) {
     orinoco.cart.remove(id);
-    this.content[id].qte--;    
+    this.content[id].qte--;
     this.displayCart();
-    if(this.content[id].qte === 0) {
+    if (this.content[id].qte === 0) {
       alert("Vous venez de supprimer cet article.");
       window.location.reload();
+      orinoco.cart.delete(id);
     };
   }
 
-  /*
-  remove(productId){
-    this.contentQty--;
-    this.content[productId].qte--;
-    if (this.content[productId].qte === 0) delete this.content[productId];
-    this.render();
-    orinoco.dataManager.saveCart(this.content);
+  deleteLine(id, qty) {
+    orinoco.cart.delete(id, qty);
+    this.content[id].qte = 0;
+    this.displayCart();
+    window.location.reload();
   }
-  */
+
 }

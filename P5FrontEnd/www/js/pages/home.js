@@ -42,7 +42,7 @@ class Home {
             <figcaption>
               <h3 id="h3">${specs.name}</h3>
               <span class="displayColor">${this.showColor(specs.colors)}</span>
-              <span class="price">${specs.price / 100}€</span>
+              <span class="price">${specs.price / 100},00€</span>
               <p>${specs.description}</p>
               <input class="addButton" type="button" value="En savoir plus">
             </figcaption>
