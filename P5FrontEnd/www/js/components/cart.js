@@ -26,7 +26,7 @@ class Cart {
   }
 
   render() {
-    this.DOM.innerHTML = `
+    this.DOM.innerHTML = /*html*/ `
     <a href="./panier.html" class="iconCart">
       <span>Mon panier</span>
       <i class="fas fa-shopping-cart">${this.content.length}</i>
@@ -54,7 +54,6 @@ class Cart {
       const id = this.content.indexOf(productId);
       this.content.splice(id, 1);
     }
-    console.log(qty);
     this.render();
     orinoco.dataManager.saveCart(this.content);
 

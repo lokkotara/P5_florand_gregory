@@ -68,7 +68,7 @@ class Panier {
    * @return  {String}                  fully filled html template
    */
   templateProduit(specs) {
-    return `
+    return /*html*/ `
     <tr>
       <td>
         <img src="${specs.imageUrl}" alt="ours ${specs.number}">
@@ -105,7 +105,7 @@ class Panier {
 
   templateError() {
     return `
-      <p class="contentText">Houston on a un problème</p>
+      <p class="contentText">Oups, il semble qu'une erreur soit survenue.</p>
     `;
   }
 
