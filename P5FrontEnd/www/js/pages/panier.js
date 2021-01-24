@@ -9,6 +9,7 @@ class Panier {
 
   constructor(domTarget) {
     this.domTarget = domTarget;
+    console.log(orinoco.cart.content);
     this.arrayToObject(orinoco.cart.content);
     this.displayCart();
   }
@@ -22,6 +23,7 @@ class Panier {
       for (const [key, value] of Object.entries(this.content)) {
         i++;
         specs = await orinoco.dataManager.getProduct(key);
+        console.log(value);
         html += this.templateProduit({ ...value, ...specs, number: i });
       }
       if (html === "") html = this.templateEmptyCart();
@@ -32,6 +34,7 @@ class Panier {
     }
     this.domTarget.innerHTML = html;
     console.log( Object.entries(this.content));
+    console.log(this.content);
 
   }
 
@@ -44,6 +47,7 @@ class Panier {
    */
   arrayToObject(list) {
     this.content = {};
+    console.log(this.content);
     for (let i = 0, size = list.length; i < size; i++) {
       if (this.content[list[i]] === undefined) this.content[list[i]] = { qte: 1 };
       else this.content[list[i]].qte++;
@@ -91,6 +95,10 @@ class Panier {
       </td>
     </tr>
   `;
+  }
+
+  DeleteLine(){
+
   }
 
   templateEmptyCart(){
