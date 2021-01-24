@@ -6,11 +6,12 @@ class Panier {
    * @type {Object}
    */
   content = {};
-
+  
   constructor(domTarget) {
     this.domTarget = domTarget;
     this.arrayToObject(orinoco.cart.content);
     this.displayCart();
+    this.displayTotal();
   }
 
   async displayCart() {
@@ -109,11 +110,10 @@ class Panier {
     `;
   }
 
-  getTotal(id) {
-    specs = orinoco.dataManager.getProduct(id);
-    let sum = specs.qte * specs.price / 100;
-    console.log(sum);
-  }
+  // getTotal() {
+  //   let sum = specs.qte * specs.price / 100;
+  //   displayTotal(sum);
+  // }
 
   displayTotal(sum) {
     return /*html*/ `
