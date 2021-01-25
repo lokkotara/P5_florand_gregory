@@ -35,7 +35,6 @@ class Panier {
       console.error(err);
       html = this.templateError();
     }
-    console.log(total)
     this.domTarget.innerHTML = html+this.displayTotal(total/100);
   }
   
