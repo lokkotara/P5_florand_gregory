@@ -13,13 +13,8 @@ orinoco.page = definePage();
 function definePage() {
   let params = (new URL(document.location)).searchParams;
   var url = window.location.pathname;
-  if (url == "/" || url == "/index.html") {
-    return new Home(document.querySelector("div.cardsWrapper"));
-  } else if (url == "/produit.html") {
-    return new Product(document.querySelector("div.singleCardWrapper"), params.get("_id"));
-  } else if (url == "/panier.html") {
-    return new Panier(document.querySelector("tbody.cartSummaryBody"));
-  } else {
-    // new Confirmation(document.querySelector("div.cardsWrapper"));
-  }
+  if (url == "/" || url == "/index.html") return new Home   (document.querySelector("div.cardsWrapper"));
+  if (url == "/produit.html")             return new Product(document.querySelector("div.singleCardWrapper"), params.get("_id"));
+  if (url == "/panier.html")              return new Panier (document.querySelector("tbody.cartSummaryBody"));
+  // new Confirmation(document.querySelector("div.cardsWrapper"));
 }

@@ -8,7 +8,7 @@ class DataManager{
 
   async getAllProducts(){
     if (this.produits!== null) return this.produits;
-    const data = await fetch(this.src);
+    const data    = await fetch(this.src);
     this.produits = await data.json();
     return this.produits;
   }

@@ -17,8 +17,8 @@ class Panier {
   async displayCart() {
     let html = "",
       i = 0,
-      produit,
-      specs;
+      specs,
+      total = 0;
     try {
       for (const [key, value] of Object.entries(this.content)) {
         i++;
@@ -28,15 +28,17 @@ class Panier {
           ...specs,
           number: i
         });
+        total += specs.price * value.qte;
       }
       if (html === "") html = this.templateEmptyCart();
     } catch (err) {
       console.error(err);
       html = this.templateError();
     }
-    this.domTarget.innerHTML = html;
-
+    console.log(total)
+    this.domTarget.innerHTML = html+this.displayTotal(total/100);
   }
+  
   /**
    * [arrayToObject description]
    *
@@ -53,7 +55,6 @@ class Panier {
       else this.content[list[i]].qte++;
     }
   }
-
 
   /**
    * html template of a product 
@@ -92,7 +93,7 @@ class Panier {
         <p>total = ${specs.qte * specs.price / 100},00€</p>
       </td>
       <td>
-        <i class="fas fa-trash-alt trashIcon" onclick="orinoco.page.deleteLine('${specs._id}','${specs.qte}')"></i>
+        <i class="fas fa-trash-alt trashIcon" onclick="orinoco.page.deleteLine('${specs._id}')"></i>
       </td>
     </tr>
   `;
@@ -110,10 +111,6 @@ class Panier {
     `;
   }
 
-  // getTotal() {
-  //   let sum = specs.qte * specs.price / 100;
-  //   displayTotal(sum);
-  // }
 
   displayTotal(sum) {
     return /*html*/ `
@@ -134,22 +131,13 @@ class Panier {
   decrement(id) {
     orinoco.cart.remove(id);
     this.content[id].qte--;
-    this.displayCart();
-    if (this.content[id].qte === 0) {
-      alert("Vous venez de supprimer cet article.");
-      window.location.reload();
-      orinoco.cart.delete(id);
-    };
+    if (this.content[id].qte === 0) this.deleteLine(id);
+    else this.displayCart();
   }
 
-  deleteLine(id, qty) {
-    orinoco.cart.delete(id, qty);
-    this.content[id].qte = 0;
+  deleteLine(id) {
+    orinoco.cart.delete(id);
+    delete this.content[id];
     this.displayCart();
-    window.location.reload();
-  }
-
-  validateForm(){
-    
   }
 }
