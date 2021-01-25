@@ -117,9 +117,11 @@ class Panier {
 
   displayTotal(sum) {
     return /*html*/ `
-      <td class="totalCart">
-        <p>Total du panier = ${sum},00€</p>
-      </td>
+      <tr>
+        <td class="totalCart">
+          <p>Total du panier = ${sum},00€</p>
+        </td>
+      </tr>
     `;
   }
 
@@ -147,4 +149,7 @@ class Panier {
     window.location.reload();
   }
 
+  validateForm(){
+    
+  }
 }

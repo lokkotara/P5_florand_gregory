@@ -93,28 +93,28 @@
           </td>
         </tr> -->
       </tbody>
-      <tfoot>
-        <tr>
-          <!-- <td class="totalCart"> -->
-            <!-- <p>Total du panier = 113,00€</p> -->
-          <!-- </td> -->
-        </tr>
+      <tfoot class="displayTotal">
+        <!-- <tr>
+          <td class="totalCart">
+            <p>Total du panier = 113,00€</p>
+          </td>
+        </tr> -->
       </tfoot>
     </table>
     <h2>Formulaire de commande</h2>
     <form class="form">
       <label for="lastname">Nom de famille</label>
-      <input type="text" name="lastname" placeholder="Dupont">
+      <input type="text" name="lastname" placeholder="Dupont" pattern="^[a-zA-Z]+$">
       <label for="firstname">Prénom</label>
-      <input type="text" name="firstname" placeholder="Jean">
+      <input type="text" name="firstname" placeholder="Jean" pattern="^[a-zA-Z]+$">
       <label for="email">Adresse de messagerie</label>
       <input type="email" name="email" placeholder="JeanDupont@gmail.com">
       <label for="adress">Adresse</label>
-      <input type="text" name="adress" placeholder="5 rue du pont Napoléon">
+      <input type="text" name="adress" placeholder="5 rue du pont Napoléon" pattern="">
       <label for="postalCode">Code postal</label>
-      <input type="text" name="postalCode" placeholder="75000">
+      <input type="text" name="postalCode" placeholder="75000" pattern="^[0-9]{5}$">
       <label for="town">Ville</label>
-      <input type="text" name="town" placeholder="Paris" class="lastInput">
+      <input type="text" name="town" placeholder="Paris" class="lastInput" pattern="^[a-zA-Z]+$">
       <div class="orderBtn">
         <a href="./confirmation.html">
           <i class="fas fa-shopping-cart cartBtn"></i>
