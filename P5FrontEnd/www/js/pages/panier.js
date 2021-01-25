@@ -6,11 +6,12 @@ class Panier {
    * @type {Object}
    */
   content = {};
-
+  
   constructor(domTarget) {
     this.domTarget = domTarget;
     this.arrayToObject(orinoco.cart.content);
     this.displayCart();
+    this.displayTotal();
   }
 
   async displayCart() {
@@ -69,7 +70,7 @@ class Panier {
    * @return  {String}                  fully filled html template
    */
   templateProduit(specs) {
-    return `
+    return /*html*/ `
     <tr>
       <td>
         <img src="${specs.imageUrl}" alt="ours ${specs.number}">
@@ -106,21 +107,18 @@ class Panier {
 
   templateError() {
     return `
-      <p class="contentText">Houston on a un problème</p>
+      <p class="contentText">Oups, il semble qu'une erreur soit survenue.</p>
     `;
   }
 
-  // getTotal(id) {
-  //   specs = orinoco.dataManager.getProduct(id);
-  //   let sum = specs.qte * specs.price / 100;
-  //   console.log(sum);
-  // }
 
   displayTotal(sum) {
     return /*html*/ `
-      <td class="totalCart">
-        <p>Total du panier = ${sum},00€</p>
-      </td>
+      <tr>
+        <td class="totalCart">
+          <p>Total du panier = ${sum},00€</p>
+        </td>
+      </tr>
     `;
   }
 
