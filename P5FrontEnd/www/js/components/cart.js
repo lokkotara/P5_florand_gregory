@@ -49,14 +49,13 @@ class Cart {
     this.render();
     orinoco.dataManager.saveCart(this.content);
   }
-  delete(productId, qty) {
-    for (let i = 1; i <= qty; i++) {
-      const id = this.content.indexOf(productId);
-      this.content.splice(id, 1);
+  delete(productId) {
+    const newContent = [];
+    for (let i = 0, size=this.content.length; i <size; i++) {
+      if (this.content[i] !== productId) newContent.push(this.content[i]);
     }
-    console.log(qty);
+    this.content = newContent;
     this.render();
     orinoco.dataManager.saveCart(this.content);
-
   }
 }
