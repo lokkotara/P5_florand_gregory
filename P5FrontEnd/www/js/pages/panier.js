@@ -6,14 +6,12 @@ class Panier {
    * @type {Object}
    */
   content = {};
-  
+
   constructor(domTarget) {
     this.domTarget = domTarget;
     this.arrayToObject(orinoco.cart.content);
-    this.displayCart();
-    this.displayTotal();
     this.displayForm();
-
+    this.displayCart();
   }
 
   async displayCart() {
@@ -37,10 +35,11 @@ class Panier {
       console.error(err);
       html = this.templateError();
     }
-    this.domTarget.innerHTML = html+this.displayTotal(total/100)+this.displayForm();
-    
+    this.domTarget.innerHTML = html;
+    this.displayTotal(total / 100);
+
   }
-  
+
   /**
    * [arrayToObject description]
    *
@@ -115,7 +114,7 @@ class Panier {
 
 
   displayTotal(sum) {
-    return /*html*/ `
+    document.getElementById('displayTotal').innerHTML = /*html*/ `
       <tr>
         <td class="totalCart">
           <p>Total du panier = ${sum},00€</p>
@@ -143,25 +142,25 @@ class Panier {
     this.displayCart();
   }
   displayForm() {
-    return /*html*/`
-      <form class="form" id="form">
-        <label for="firstName">Prénom</label>
-        <input type="text" name="firstName" placeholder="Jean" pattern="^[a-zA-ZÀ-ÿ]+$">
-        <label for="lastName">Nom de famille</label>
-        <input type="text" name="lastName" placeholder="Dupont" pattern="^[a-zA-ZÀ-ÿ]+$">
-        <label for="address">Adresse</label>
-        <input type="text" name="address" placeholder="5 rue du pont Napoléon" pattern="">
-        <label for="city">Ville</label>
-        <input type="text" name="city" placeholder="Paris"  pattern="^[a-zA-ZÀ-ÿ]+$">
-        <label for="email">Adresse de messagerie</label>
-        <input type="email" name="email" class="lastInput" placeholder="JeanDupont@gmail.com">
-        <div class="orderBtn">
-          <a href="./confirmation.html">
-            <i class="fas fa-shopping-cart cartBtn"></i>
-            <input class="formBtn" type="button" value="Passer commande">
-          </a>
-        </div>
-      </form>
+    console.log(this.displayTotal());
+    document.getElementById('form').innerHTML = /*html*/ `
+      <label for="firstName">Prénom</label>
+      <input type="text" name="firstName" placeholder="Jean" pattern="^[a-zA-ZÀ-ÿ]+$">
+      <label for="lastName">Nom de famille</label>
+      <input type="text" name="lastName"placeholder="Dupont"   pattern="^[a-zA-ZÀ-ÿ]+$">
+      <label for="address">Adresse</label>
+      <input type="text" name="address" placeholder="5 ruedu   pont Napoléon" pattern="">
+      <label for="city">Ville</label>
+      <input type="text" name="city" placeholder="Paris"   pattern="^[a-zA-ZÀ-ÿ]+$">
+      <label for="email">Adresse de messagerie</label>
+      <input type="email" name="email" class="lastInput" placeholder="JeanDupont@gmail.com">
+      <div class="orderBtn">
+        <a href="./confirmation.html">
+          <i class="fas fa-shopping-cart cartBtn"></i>
+          <input class="formBtn" type="button" value="Passer commande">
+        </a>
+      </div>
     `;
+    // this.displayCart();
   }
 }

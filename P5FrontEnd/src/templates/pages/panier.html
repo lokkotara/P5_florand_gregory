@@ -7,8 +7,8 @@
   <title>Vue d'ensemble du panier | Orinounours</title>
   <link rel="icon" type="image/png" href=".\images\favicon.png">
   <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" <!-- pages
-    -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+  <!-- pages-->
   <script src="js/pages/panier.js"></script>
   <%- include("../partials/scripts.html"); %>
 </head>
@@ -24,84 +24,16 @@
     <h2>Récapitulatif de votre panier</h2>
     <table class="cartSummary" >
       <tbody class="cartSummaryBody">
-        <!-- <tr>
-          <td>
-            <img src="http://localhost:3000/images/teddy_1.jpg" alt="Premier ours">
-          </td>
-          <td>
-            <h3>Norbert</h3>
-          </td>
-          <td>
-            <div class="setQty">
-              <div class="minusBtn">
-                <i class="fas fa-minus"></i>
-              </div>
-              <input type="number" class="field">
-              <div class="plusBtn">
-                <i class="fas fa-plus"></i>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p>total = 58,00€</p>
-          </td>
-          <td>
-            <i class="fas fa-trash-alt trashIcon"></i>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <img src="http://localhost:3000/images/teddy_5.jpg" alt="Premier ours">
-          </td>
-          <td class="middleRow">
-            <h3>Garfunkel</h3>
-          </td>
-          <td>
-            <div class="setQty">
-              <div class="minusBtn">
-                <i class="fas fa-minus"></i>
-              </div>
-              <input type="number" class="field">
-              <div class="plusBtn">
-                <i class="fas fa-plus"></i>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p>total = 55,00€</p>
-          </td>
-          <td>
-            <i class="fas fa-trash-alt trashIcon"></i>
-          </td>
-        </tr> -->
+        
       </tbody>
-      <tfoot class="displayTotal">
-        <!-- <tr>
-          <td class="totalCart">
-            <p>Total du panier = 113,00€</p>
-          </td>
-        </tr> -->
+      <tfoot class="displayTotal" id="displayTotal">
+        
       </tfoot>
     </table>
     <h2 id="formTitle">Formulaire de commande</h2>
-    <!-- <form class="form" id="form">
-      <label for="firstName">Prénom</label>
-      <input type="text" name="firstName" placeholder="Jean" pattern="^[a-zA-ZÀ-ÿ]+$">
-      <label for="lastName">Nom de famille</label>
-      <input type="text" name="lastName" placeholder="Dupont" pattern="^[a-zA-ZÀ-ÿ]+$">
-      <label for="address">Adresse</label>
-      <input type="text" name="address" placeholder="5 rue du pont Napoléon" pattern="">
-      <label for="city">Ville</label>
-      <input type="text" name="city" placeholder="Paris"  pattern="^[a-zA-ZÀ-ÿ]+$">
-      <label for="email">Adresse de messagerie</label>
-      <input type="email" name="email" class="lastInput" placeholder="JeanDupont@gmail.com">
-      <div class="orderBtn">
-        <a href="./confirmation.html">
-          <i class="fas fa-shopping-cart cartBtn"></i>
-          <input class="formBtn" type="button" value="Passer commande">
-        </a>
-      </div>
-    </form> -->
+    <form class="form" id="form">
+      
+    </form> 
   </main>
   <%- include("../partials/footer.html"); %>
 </body>
