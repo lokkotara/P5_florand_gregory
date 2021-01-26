@@ -12,6 +12,8 @@ class Panier {
     this.arrayToObject(orinoco.cart.content);
     this.displayCart();
     this.displayTotal();
+    this.displayForm();
+
   }
 
   async displayCart() {
@@ -35,7 +37,8 @@ class Panier {
       console.error(err);
       html = this.templateError();
     }
-    this.domTarget.innerHTML = html+this.displayTotal(total/100);
+    this.domTarget.innerHTML = html+this.displayTotal(total/100)+this.displayForm();
+    
   }
   
   /**
@@ -138,5 +141,27 @@ class Panier {
     orinoco.cart.delete(id);
     delete this.content[id];
     this.displayCart();
+  }
+  displayForm() {
+    return /*html*/`
+      <form class="form" id="form">
+        <label for="firstName">Prénom</label>
+        <input type="text" name="firstName" placeholder="Jean" pattern="^[a-zA-ZÀ-ÿ]+$">
+        <label for="lastName">Nom de famille</label>
+        <input type="text" name="lastName" placeholder="Dupont" pattern="^[a-zA-ZÀ-ÿ]+$">
+        <label for="address">Adresse</label>
+        <input type="text" name="address" placeholder="5 rue du pont Napoléon" pattern="">
+        <label for="city">Ville</label>
+        <input type="text" name="city" placeholder="Paris"  pattern="^[a-zA-ZÀ-ÿ]+$">
+        <label for="email">Adresse de messagerie</label>
+        <input type="email" name="email" class="lastInput" placeholder="JeanDupont@gmail.com">
+        <div class="orderBtn">
+          <a href="./confirmation.html">
+            <i class="fas fa-shopping-cart cartBtn"></i>
+            <input class="formBtn" type="button" value="Passer commande">
+          </a>
+        </div>
+      </form>
+    `;
   }
 }

@@ -16,5 +16,5 @@ function definePage() {
   if (url == "/" || url == "/index.html") return new Home   (document.querySelector("div.cardsWrapper"));
   if (url == "/produit.html")             return new Product(document.querySelector("div.singleCardWrapper"), params.get("_id"));
   if (url == "/panier.html")              return new Panier (document.querySelector("tbody.cartSummaryBody"));
-  // new Confirmation(document.querySelector("div.cardsWrapper"));
+  if (url == "/confirmation.html")       return new Confirmation (document.querySelector("div.cardsWrapper"));
 }
