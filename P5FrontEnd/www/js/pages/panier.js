@@ -142,18 +142,17 @@ class Panier {
     this.displayCart();
   }
   displayForm() {
-    console.log(this.displayTotal());
     document.getElementById('form').innerHTML = /*html*/ `
       <label for="firstName">Prénom</label>
-      <input type="text" name="firstName" placeholder="Jean" pattern="^[a-zA-ZÀ-ÿ]+$">
+      <input type="text" name="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$">
       <label for="lastName">Nom de famille</label>
-      <input type="text" name="lastName"placeholder="Dupont"   pattern="^[a-zA-ZÀ-ÿ]+$">
+      <input type="text" name="lastName"placeholder="Dupont"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$">
       <label for="address">Adresse</label>
-      <input type="text" name="address" placeholder="5 ruedu   pont Napoléon" pattern="">
+      <input type="text" name="address" placeholder="5 rue du pont Napoléon" pattern="[a-zA-Z0-9À-ÿ\s-']+">
       <label for="city">Ville</label>
-      <input type="text" name="city" placeholder="Paris"   pattern="^[a-zA-ZÀ-ÿ]+$">
+      <input type="text" name="city" placeholder="Paris"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$">
       <label for="email">Adresse de messagerie</label>
-      <input type="email" name="email" class="lastInput" placeholder="JeanDupont@gmail.com">
+      <input type="email" name="email" class="lastInput" placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})">
       <div class="orderBtn">
         <a href="./confirmation.html">
           <i class="fas fa-shopping-cart cartBtn"></i>
@@ -161,6 +160,5 @@ class Panier {
         </a>
       </div>
     `;
-    // this.displayCart();
   }
 }
