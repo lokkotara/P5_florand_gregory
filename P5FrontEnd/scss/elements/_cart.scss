@@ -66,6 +66,10 @@
   width: 100%;
   row-gap: 1rem;
 
+  input:valid {
+    background-color: #c2d8b6;
+  }
+
   a {
     align-self: center;
 
@@ -82,8 +86,13 @@
 
   &Btn {
     font-weight: bold;
-    border-radius: 0 1.5rem 1.5rem 0;
+    border-radius: 1.5rem;
     background-color: var(--Primary-Color);
+    cursor: pointer;
+    &:disabled{
+      cursor: not-allowed;
+
+    }
   }
 
   label {
@@ -102,10 +111,10 @@
     border-radius: 1.5rem;
     max-width: 40rem;
 
-    .cartBtn {
-      padding-right: 0;
-      border-radius: 1.5rem 0 0 1.5rem;
-      font-size: 1.7rem;
-    }
+    // .cartBtn {
+    //   padding-right: 0;
+    //   border-radius: 1.5rem 0 0 1.5rem;
+    //   font-size: 1.7rem;
+    // }
   }
 }

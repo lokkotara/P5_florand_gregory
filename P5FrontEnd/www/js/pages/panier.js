@@ -12,6 +12,7 @@ class Panier {
     this.arrayToObject(orinoco.cart.content);
     this.displayForm();
     this.displayCart();
+    this.watchClick();
   }
 
   async displayCart() {
@@ -144,21 +145,33 @@ class Panier {
   displayForm() {
     document.getElementById('form').innerHTML = /*html*/ `
       <label for="firstName">Prénom</label>
-      <input type="text" name="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$">
+      <input type="text" name="firstName" id="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$" required>
       <label for="lastName">Nom de famille</label>
-      <input type="text" name="lastName"placeholder="Dupont"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$">
+      <input type="text" name="lastName" id="lastName" placeholder="Dupont"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$" required>
       <label for="address">Adresse</label>
-      <input type="text" name="address" placeholder="5 rue du pont Napoléon" pattern="[a-zA-Z0-9À-ÿ\s-']+">
+      <input type="text" name="address" id="address" placeholder="5 rue du pont Napoléon" pattern="[a-zA-Z0-9À-ÿ\s-']+" required>
       <label for="city">Ville</label>
-      <input type="text" name="city" placeholder="Paris"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$">
+      <input type="text" name="city" id="city" placeholder="Paris"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$" required>
       <label for="email">Adresse de messagerie</label>
-      <input type="email" name="email" class="lastInput" placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})">
-      <div class="orderBtn">
-        <a href="./confirmation.html">
-          <i class="fas fa-shopping-cart cartBtn"></i>
-          <input class="formBtn" type="button" value="Passer commande">
-        </a>
-      </div>
+      <input type="email" name="email" id="email" class="lastInput" placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" required>
+      <button class="formBtn" type="submit">Passer commande</button>
     `;
+  }
+  getForm() {
+    let contact = {
+      firstName: document.getElementById("firstName").value,
+      lastName: document.getElementById("lastName").value,
+      address: document.getElementById("address").value,
+      city: document.getElementById("city").value,
+      email: document.getElementById("email").value
+    };
+    console.log(contact);
+  }
+  watchClick() {
+    const formBtn = document.getElementById("form");
+    formBtn.addEventListener('submit', e => {
+      e.preventDefault();
+      this.getForm();
+    })
   }
 }
