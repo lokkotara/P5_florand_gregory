@@ -67,7 +67,11 @@
   row-gap: 1rem;
 
   input:valid {
-    background-color: #c2d8b6;
+    border-color: #c2d8b6;
+  }
+
+  span {
+    color: var(--Secondary-Color);
   }
 
   a {
@@ -116,5 +120,13 @@
     //   border-radius: 1.5rem 0 0 1.5rem;
     //   font-size: 1.7rem;
     // }
+  }
+
+  .notice {
+    font-size: 1.2rem;
+    font-style: italic;
+    span {
+      font-size: 1.2rem;
+    }
   }
 }

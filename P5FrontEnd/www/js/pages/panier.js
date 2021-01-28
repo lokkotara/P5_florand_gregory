@@ -29,7 +29,7 @@ class Panier {
           ...specs,
           number: i
         });
-        total += specs.price * value.qte;
+        total += specs.price * value.qte / 100;
       }
       if (html === "") html = this.templateEmptyCart();
     } catch (err) {
@@ -37,8 +37,7 @@ class Panier {
       html = this.templateError();
     }
     this.domTarget.innerHTML = html;
-    this.displayTotal(total / 100);
-
+    this.displayTotal(total);
   }
 
   /**
@@ -102,13 +101,13 @@ class Panier {
   }
 
   templateEmptyCart() {
-    return `
+    return /*html*/ `
       <p class="contentText">Votre panier est vide, pensez à ajouter des articles</p>
     `;
   }
 
   templateError() {
-    return `
+    return /*html*/ `
       <p class="contentText">Oups, il semble qu'une erreur soit survenue.</p>
     `;
   }
@@ -122,6 +121,8 @@ class Panier {
         </td>
       </tr>
     `;
+    this.saveTotal(sum);
+
   }
 
   increment(id) {
@@ -144,20 +145,21 @@ class Panier {
   }
   displayForm() {
     document.getElementById('form').innerHTML = /*html*/ `
-      <label for="firstName">Prénom</label>
-      <input type="text" name="firstName" id="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$" required>
-      <label for="lastName">Nom de famille</label>
-      <input type="text" name="lastName" id="lastName" placeholder="Dupont"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$" required>
-      <label for="address">Adresse</label>
-      <input type="text" name="address" id="address" placeholder="5 rue du pont Napoléon" pattern="[a-zA-Z0-9À-ÿ\s-']+" required>
-      <label for="city">Ville</label>
-      <input type="text" name="city" id="city" placeholder="Paris"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ\s-]+$" required>
-      <label for="email">Adresse de messagerie</label>
+      <label for="firstName">Prénom<span>*</span></label>
+      <input type="text" name="firstName" id="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
+      <label for="lastName">Nom de famille<span>*</span></label>
+      <input type="text" name="lastName" id="lastName" placeholder="Dupont"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
+      <label for="address">Adresse<span>*</span></label>
+      <input type="text" name="address" id="address" placeholder="5 rue du pont Napoléon" pattern="[a-zA-Z0-9À-ÿ '-]+" required>
+      <label for="city">Ville<span>*</span></label>
+      <input type="text" name="city" id="city" placeholder="Paris"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
+      <label for="email">Adresse de messagerie<span>*</span></label>
       <input type="email" name="email" id="email" class="lastInput" placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" required>
       <button class="formBtn" type="submit">Passer commande</button>
+      <p class="notice">Veuillez remplir tous les champs obligatoires (<span>*</span>) du formulaire,<br> afin de pouvoir valider votre commande</p>
     `;
   }
-  getForm() {
+  sendForm() {
     let contact = {
       firstName: document.getElementById("firstName").value,
       lastName: document.getElementById("lastName").value,
@@ -165,13 +167,24 @@ class Panier {
       city: document.getElementById("city").value,
       email: document.getElementById("email").value
     };
-    console.log(contact);
+    let products = orinoco.cart.content;
+    let contactItems = JSON.stringify({
+      contact,
+      products
+    });
+    orinoco.dataManager.postOrder(contactItems);
   }
   watchClick() {
     const formBtn = document.getElementById("form");
     formBtn.addEventListener('submit', e => {
       e.preventDefault();
-      this.getForm();
+      this.sendForm();
+    })
+  }
+  saveTotal(sum) {
+    let validateForm = document.querySelector(".formBtn").addEventListener("click", function () {
+      sessionStorage.setItem("total", sum);
+      localStorage.clear();
     })
   }
 }
