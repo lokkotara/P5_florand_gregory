@@ -30,11 +30,5 @@ class Confirmation {
       </a>
     </div>
     `;
-    this.resetAll();
-  }
-  resetAll(){
-    // sessionStorage.clear();
-    // localStorage.clear();
-    console.log(orinoco.cart);
   }
 }
