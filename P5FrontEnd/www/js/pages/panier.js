@@ -20,6 +20,7 @@ class Panier {
       i = 0,
       specs,
       total = 0;
+
     try {
       for (const [key, value] of Object.entries(this.content)) {
         i++;
@@ -29,13 +30,17 @@ class Panier {
           ...specs,
           number: i
         });
+
         total += specs.price * value.qte / 100;
       }
+
       if (html === "") html = this.templateEmptyCart();
+
     } catch (err) {
       console.error(err);
       html = this.templateError();
     }
+
     this.domTarget.innerHTML = html;
     this.displayTotal(total);
   }
@@ -49,6 +54,7 @@ class Panier {
    */
   arrayToObject(list) {
     this.content = {};
+
     for (let i = 0, size = list.length; i < size; i++) {
       if (this.content[list[i]] === undefined) this.content[list[i]] = {
         qte: 1
@@ -147,14 +153,19 @@ class Panier {
     document.getElementById('form').innerHTML = /*html*/ `
       <label for="firstName">Prénom<span>*</span></label>
       <input type="text" name="firstName" id="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
+
       <label for="lastName">Nom de famille<span>*</span></label>
       <input type="text" name="lastName" id="lastName" placeholder="Dupont"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
+
       <label for="address">Adresse<span>*</span></label>
       <input type="text" name="address" id="address" placeholder="5 rue du pont Napoléon" pattern="[a-zA-Z0-9À-ÿ '-]+" required>
+
       <label for="city">Ville<span>*</span></label>
       <input type="text" name="city" id="city" placeholder="Paris"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
+
       <label for="email">Adresse de messagerie<span>*</span></label>
       <input type="email" name="email" id="email" class="lastInput" placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" required>
+
       <button class="formBtn" type="submit">Passer commande</button>
       <p class="notice">Veuillez remplir tous les champs obligatoires (<span>*</span>) du formulaire,<br> afin de pouvoir valider votre commande</p>
     `;
@@ -167,25 +178,28 @@ class Panier {
       city: document.getElementById("city").value,
       email: document.getElementById("email").value
     };
+
     let products = orinoco.cart.content;
-    
+
     let contactItems = JSON.stringify({
       contact,
       products
     });
+
     orinoco.dataManager.postOrder(contactItems);
   }
   watchClick() {
     const formBtn = document.getElementById("form");
-    formBtn.addEventListener('submit', e => {
+    formBtn.addEventListener("submit", e => {
       e.preventDefault();
       this.sendForm();
     })
   }
+
   saveTotal(sum) {
-    let validateForm = document.querySelector(".formBtn").addEventListener("click", function () {
-      sessionStorage.setItem("total", sum);
-      localStorage.clear();
-    })
+    let validateForm = document.querySelector(".formBtn").addEventListener("click", () => {
+        sessionStorage.setItem("total", sum);
+        localStorage.clear();
+      })
   }
 }
