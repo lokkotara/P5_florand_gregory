@@ -1,4 +1,4 @@
-/*eslint-disable no-unused-vars*/
+/* eslint-disable no-undef */
 const orinoco = {
   dataManager: new DataManager("http://localhost:3000/api/teddies/")
 };
@@ -6,9 +6,9 @@ orinoco.cart = new Cart(document.querySelector("nav"));
 orinoco.page = definePage();
 
 /**
- * define the page content
+ * définit le contenu à afficher sur les pages
  *
- * @return  {Home|Product|Panier}  returns a page
+ * @return  {Home|Product|Panier|Confirmation}  retourne une page
  */
 function definePage() {
   let params = (new URL(document.location)).searchParams;

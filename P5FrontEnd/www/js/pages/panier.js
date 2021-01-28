@@ -168,6 +168,7 @@ class Panier {
       email: document.getElementById("email").value
     };
     let products = orinoco.cart.content;
+    
     let contactItems = JSON.stringify({
       contact,
       products
