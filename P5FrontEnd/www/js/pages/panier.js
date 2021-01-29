@@ -118,7 +118,6 @@ class Panier {
     `;
   }
 
-
   displayTotal(sum) {
     document.getElementById('displayTotal').innerHTML = /*html*/ `
       <tr>
@@ -149,6 +148,7 @@ class Panier {
     delete this.content[id];
     this.displayCart();
   }
+
   displayForm() {
     document.getElementById('form').innerHTML = /*html*/ `
       <label for="firstName">Prénom<span>*</span></label>
@@ -170,6 +170,7 @@ class Panier {
       <p class="notice">Veuillez remplir tous les champs obligatoires (<span>*</span>) du formulaire,<br> afin de pouvoir valider votre commande</p>
     `;
   }
+
   sendForm() {
     let contact = {
       firstName: document.getElementById("firstName").value,
@@ -185,21 +186,25 @@ class Panier {
       contact,
       products
     });
-
     orinoco.dataManager.postOrder(contactItems);
   }
+  
   watchClick() {
     const formBtn = document.getElementById("form");
     formBtn.addEventListener("submit", e => {
       e.preventDefault();
-      this.sendForm();
+      if(orinoco.cart.content.length > 0) {
+        this.sendForm();
+      }else {
+        alert("Vous devez d'abord choisir au moins un produit.");
+      }
     })
   }
 
   saveTotal(sum) {
     let validateForm = document.querySelector(".formBtn").addEventListener("click", () => {
-        sessionStorage.setItem("total", sum);
-        localStorage.clear();
-      })
+      sessionStorage.setItem("total", sum);
+      localStorage.clear();
+    })
   }
 }
