@@ -13,6 +13,7 @@ class Panier {
     this.displayForm();
     this.displayCart();
     this.watchClick();
+    this.validateForm();
   }
 
   async displayCart() {
@@ -169,6 +170,41 @@ class Panier {
       <button class="formBtn" type="submit">Passer commande</button>
       <p class="notice">Veuillez remplir tous les champs obligatoires (<span>*</span>) du formulaire,<br> afin de pouvoir valider votre commande</p>
     `;
+  }
+  formBtnControl() {
+    let result = this.validateForm();
+    console.log(result);
+    if (result == false || result == undefined) {
+      this.disableFormBtn();
+    } else {
+      this.enableFormBtn();
+    }
+  }
+  // test(e) {
+  //   console.log("contenu : " + e.target.validity.valid);
+  // }
+  validateForm() {
+    let allIsValid = 1;
+    let firstName = document.forms[0].elements["firstName"].addEventListener("input", (e) =>{
+      let result = e.target.validity.valid;
+      console.log(result);
+      if(result == false){allIsValid++;}else{allIsValid = 0};
+      console.log(allIsValid);
+    });
+    return (allIsValid == 0);
+    // if(document.forms[0].elements["firstName"].validity.valid == false) {allIsValid++;}
+    // if(document.forms[0].elements["lastName"].validity.valid == false) {allIsValid++;}
+    // if(document.forms[0].elements["address"].validity.valid == false) {allIsValid++;}
+    // if(document.forms[0].elements["city"].validity.valid == false) {allIsValid++;}
+    // if(document.forms[0].elements["email"].validity.valid == false) {allIsValid++;}
+  }
+
+  disableFormBtn() {
+    document.querySelector(".formBtn").disabled = true;
+  }
+
+  enableFormBtn() {
+    document.querySelector(".formBtn").disabled = false;
   }
 
   sendForm() {
