@@ -150,10 +150,24 @@ class Panier {
     this.displayCart();
   }
 
+  /**
+   * [checkField description]
+   *
+   * @param   {HTMLElement}  domElm  [domElm description]
+   * @param   {String}  msg     [msg description]
+   *
+   * @return  {[type]}          [return description]
+   */
+  checkField(domElm, msg){
+    document.getElementById(domElm.id+"Msg").innerHTML = (domElm.validity.valid) ? "" : msg;
+
+  }
+
   displayForm() {
     document.getElementById('form').innerHTML = /*html*/ `
       <label for="firstName">Prénom<span>*</span></label>
-      <input type="text" name="firstName" id="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
+      <input type="text" name="firstName" id="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required oninput="orinoco.page.checkField(this,'Seul les caractères sont autorisés et au moins 2')">
+      <div id="firstNameMsg"></div>
 
       <label for="lastName">Nom de famille<span>*</span></label>
       <input type="text" name="lastName" id="lastName" placeholder="Dupont"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
