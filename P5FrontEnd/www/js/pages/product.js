@@ -5,7 +5,7 @@ class Product {
   /**
    * [constructor description]
    *
-   * @param   {HTMLElement}  domTarget  [domTarget description]
+   * @param   {HTMLElement}  domTarget  l'élément dans lequel afficher le contenu 
    *
    * @constructor
    */
@@ -14,11 +14,25 @@ class Product {
     this.showProduct(domTarget, productId);
   }
 
+  /**
+   * affiche le produit sélectionné
+   *
+   * @param   {[type]}  domTarget  élément dans lequel affiché
+   * @param   {string}  productId  Id du produit à afficher
+   *
+   * @return  {[type]}             [return description]
+   */
   async showProduct(domTarget, productId) {
-    const produit = await orinoco.dataManager.getProduct(productId);
-    domTarget.innerHTML = this.productHtml(produit);
+    const produit = await orinoco.dataManager.getProduct(productId);//attend la réponse de l'api pour le produit
+    domTarget.innerHTML = this.productHtml(produit);//affiche le produit par la méthode productHtml().
     this.initQtySelector();
   }
+
+  /**
+   * Surveille le changement de quantité
+   *
+   * @return  {[type]}  [return description]
+   */
   initQtySelector() {
     let getMinus = document.getElementById("minusBtn");
     let getPlus = document.getElementById("plusBtn");
@@ -28,6 +42,7 @@ class Product {
     getPlus.addEventListener("click", this.incrementInput);
     getBtn.addEventListener("click", this.addToCart);
   }
+  
   /**
    * génère le HTML d'un produit
    *
