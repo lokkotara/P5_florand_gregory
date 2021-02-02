@@ -229,9 +229,9 @@ class Panier {
         this.sendForm();
       } else {
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Vous devez d\'abord ajouter au moins un produit.!'
+          icon: "error",
+          title: "Oops...",
+          text: "Vous devez d\'abord ajouter au moins un produit.!"
         })
       }
     })
