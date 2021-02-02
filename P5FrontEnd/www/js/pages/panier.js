@@ -143,11 +143,23 @@ class Panier {
     if (this.content[id].qte === 0) this.deleteLine(id);
     else this.displayCart();
   }
-
   deleteLine(id) {
-    orinoco.cart.delete(id);
-    delete this.content[id];
-    this.displayCart();
+    Swal.fire({
+      position: "top",
+      showDenyButton: true,
+      icon: "warning",
+      title: "Attention",
+      text: "Voulez-vous vraiment supprimer cette ligne ?",
+      confirmButtonText: "Oui, je le veux",
+      denyButtonText: "En fait, non"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        orinoco.cart.delete(id);
+        delete this.content[id];
+        this.displayCart();;
+      }
+    });
+
   }
 
   /**
@@ -158,67 +170,37 @@ class Panier {
    *
    * @return  {[type]}          [return description]
    */
-  checkField(domElm, msg){
-    document.getElementById(domElm.id+"Msg").innerHTML = (domElm.validity.valid) ? "" : msg;
+  checkField(domElm, msg) {
+    document.getElementById(domElm.id + "Msg").innerHTML = (domElm.validity.valid) ? "" : msg;
 
   }
 
   displayForm() {
     document.getElementById('form').innerHTML = /*html*/ `
       <label for="firstName">Prénom<span>*</span></label>
-      <input type="text" name="firstName" id="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required oninput="orinoco.page.checkField(this,'Seul les caractères sont autorisés et au moins 2')">
+      <input type="text" name="firstName" id="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required oninput="orinoco.page.checkField(this,'Ne doit contenir que des lettres (au moins 2)')">
       <div id="firstNameMsg"></div>
 
       <label for="lastName">Nom de famille<span>*</span></label>
-      <input type="text" name="lastName" id="lastName" placeholder="Dupont"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
+      <input type="text" name="lastName" id="lastName" placeholder="Dupont"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required oninput="orinoco.page.checkField(this,'Ne doit contenir que des lettres (au moins 2)')">
+      <div id="lastNameMsg"></div>
 
       <label for="address">Adresse<span>*</span></label>
-      <input type="text" name="address" id="address" placeholder="5 rue du pont Napoléon" pattern="[a-zA-Z0-9À-ÿ '-]+" required>
+      <input type="text" name="address" id="address" placeholder="5 rue du pont Napoléon" pattern="[a-zA-Z0-9À-ÿ '-]{2,}" required oninput="orinoco.page.checkField(this,'Ne doit contenir que des lettres et des chiffres (au moins 2)')">
+      <div id="addressMsg"></div>
 
       <label for="city">Ville<span>*</span></label>
-      <input type="text" name="city" id="city" placeholder="Paris"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required>
+      <input type="text" name="city" id="city" placeholder="Paris"   pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required oninput="orinoco.page.checkField(this,'Ne doit contenir que des lettres (au moins 2)')">
+      <div id="cityMsg"></div>
 
       <label for="email">Adresse de messagerie<span>*</span></label>
-      <input type="email" name="email" id="email" class="lastInput" placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" required>
+      <input type="email" name="email" id="email" class="lastInput" placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" required oninput="orinoco.page.checkField(this,'L\'entrée doit respecter le format email')">
+      <div id="emailMsg"></div>
+
 
       <button class="formBtn" type="submit">Passer commande</button>
       <p class="notice">Veuillez remplir tous les champs obligatoires (<span>*</span>) du formulaire,<br> afin de pouvoir valider votre commande</p>
     `;
-  }
-  // formBtnControl(test) {
-  //   let result = test;
-  //   console.log(result);
-  //   if (result == 0) {
-  //     this.enableFormBtn();
-  //   } else {
-  //     this.disableFormBtn();
-  //   }
-  // }
-
-  // validateForm() {
-    
-  //   let allIsValid = 1;
-  //   let firstName = document.forms[0].elements["firstName"].addEventListener("input", (e) =>{
-  //     let result = e.target.validity.valid;
-  //     console.log(result);
-  //     if(result == false){allIsValid++;}else{allIsValid = 0};
-  //     console.log(allIsValid);
-  //     this.formBtnControl(allIsValid);
-  //   });
-  //   return (allIsValid == 0);
-  //   if(document.forms[0].elements["firstName"].validity.valid == false) {allIsValid++;}
-  //   if(document.forms[0].elements["lastName"].validity.valid == false) {allIsValid++;}
-  //   if(document.forms[0].elements["address"].validity.valid == false) {allIsValid++;}
-  //   if(document.forms[0].elements["city"].validity.valid == false) {allIsValid++;}
-  //   if(document.forms[0].elements["email"].validity.valid == false) {allIsValid++;}
-  // }
-
-  disableFormBtn() {
-    document.querySelector(".formBtn").disabled = true;
-  }
-
-  enableFormBtn() {
-    document.querySelector(".formBtn").disabled = false;
   }
 
   sendForm() {
@@ -238,15 +220,19 @@ class Panier {
     });
     orinoco.dataManager.postOrder(contactItems);
   }
-  
+
   watchClick() {
     const formBtn = document.getElementById("form");
     formBtn.addEventListener("submit", e => {
       e.preventDefault();
-      if(orinoco.cart.content.length > 0) {
+      if (orinoco.cart.content.length > 0) {
         this.sendForm();
-      }else {
-        alert("Vous devez d'abord choisir au moins un produit.");
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Vous devez d\'abord ajouter au moins un produit.!'
+        })
       }
     })
   }

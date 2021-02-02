@@ -23,8 +23,8 @@ class Product {
    * @return  {[type]}             [return description]
    */
   async showProduct(domTarget, productId) {
-    const produit = await orinoco.dataManager.getProduct(productId);//attend la réponse de l'api pour le produit
-    domTarget.innerHTML = this.productHtml(produit);//affiche le produit par la méthode productHtml().
+    const produit = await orinoco.dataManager.getProduct(productId); //attend la réponse de l'api pour le produit
+    domTarget.innerHTML = this.productHtml(produit); //affiche le produit par la méthode productHtml().
     this.initQtySelector();
   }
 
@@ -42,7 +42,7 @@ class Product {
     getPlus.addEventListener("click", this.incrementInput);
     getBtn.addEventListener("click", this.addToCart);
   }
-  
+
   /**
    * génère le HTML d'un produit
    *
@@ -158,8 +158,21 @@ class Product {
     let getInput = document.getElementById("field").value;
     let stringToNumber = parseInt(getInput, 10);
     orinoco.cart.add(produit, stringToNumber);
-    alert("Vous avez ajouté " + stringToNumber + " nounours au panier.");
-    document.location.href="./index.html ";
+    Swal.fire({
+      position: "top",
+      showDenyButton: true,
+      icon: "success",
+      title: "Bravo",
+      text: "Vous avez ajouté " + stringToNumber + " nounours au panier.",
+      confirmButtonText: "Aller au panier",
+      denyButtonText: "Retourner à l'accueil"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        document.location.href="./panier.html ";
+      } else if (result.isDenied) {
+        document.location.href="./index.html ";
+      }
+    });
   }
 
 }

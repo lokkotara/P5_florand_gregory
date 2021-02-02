@@ -76,6 +76,14 @@ label {
   font-size: 1.7rem;
 }
 
+.swal2-container .swal2-popup {
+  font-size: 1.7rem;
+}
+
+.swal2-success-line-long, .swal2-success-line-tip, .swal2-x-mark-line-left, .swal2-x-mark-line-right {
+  font-size: inherit;
+}
+
 p {
   padding: 2rem 0;
 }
