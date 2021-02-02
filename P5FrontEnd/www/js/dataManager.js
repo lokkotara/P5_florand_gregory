@@ -53,7 +53,7 @@ class DataManager {
       return response.json();
 
     }).then(r => {
-      sessionStorage.setItem('contact', JSON.stringify(r.contact));
+      localStorage.setItem('contact', JSON.stringify(r.contact));
       sessionStorage.setItem('orderId', JSON.stringify(r.orderId));
       window.location.href = "./confirmation.html";
     })
