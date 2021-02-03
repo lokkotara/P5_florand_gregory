@@ -44,7 +44,6 @@ class Cart {
 
   remove(productId) {
     const id = this.content.indexOf(productId);
-    console.log(id);
     this.content.splice(id, 1);
     this.render();
     orinoco.dataManager.saveCart(this.content);
@@ -55,6 +54,12 @@ class Cart {
       if (this.content[i] !== productId) newContent.push(this.content[i]);
     }
     this.content = newContent;
+    this.render();
+    orinoco.dataManager.saveCart(this.content);
+  }
+
+  deleteAll() {
+    this.content = [];
     this.render();
     orinoco.dataManager.saveCart(this.content);
   }

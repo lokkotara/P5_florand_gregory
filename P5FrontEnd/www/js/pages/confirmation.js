@@ -1,15 +1,22 @@
+/* global orinoco */
 // eslint-disable-next-line no-unused-vars
 class Confirmation {
 
   constructor(domTarget) {
     this.domTarget = domTarget;
-    this.displayMessage(domTarget);
+    this.clearCart(domTarget);
   }
   
+  clearCart(domTarget) {
+    localStorage.removeItem("cart");
+    orinoco.cart.deleteAll();
+    this.displayMessage(domTarget);
+  }
+
   displayMessage(domTarget) {
-    let contact = JSON.parse(sessionStorage.getItem("contact")),
-      orderId = JSON.parse(sessionStorage.getItem("orderId")),
-      totalOrder = JSON.parse(sessionStorage.getItem("total"));
+    let contact = JSON.parse(localStorage.getItem("contact")),
+      orderId = (new URL(document.location)).searchParams,
+      totalOrder = JSON.parse(localStorage.getItem("total"));
 
     domTarget.innerHTML = /*html*/ `
     <section class="confirmationWrapper">
@@ -18,7 +25,7 @@ class Confirmation {
         Votre commande d'un montant de <span id="orderAmount">${totalOrder},00€</span> a été validée.
       </p>
       <p>
-        Elle porte la référence : <span id="orderId">${orderId}</span>
+        Elle porte la référence : <span id="orderId">${orderId.get("orderId")}</span>
       </p>
       <p>
         Votre facture va vous être envoyé par mail à : <span id="orderMail">${contact.email}</span>.

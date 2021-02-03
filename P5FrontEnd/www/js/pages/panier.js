@@ -13,7 +13,6 @@ class Panier {
     this.displayForm();
     this.displayCart();
     this.watchClick();
-    // this.validateForm();
   }
 
   async displayCart() {
@@ -122,12 +121,12 @@ class Panier {
   displayTotal(sum) {
     document.getElementById('displayTotal').innerHTML = /*html*/ `
       <tr>
-        <td class="totalCart">
-          <p>Total du panier = ${sum},00€</p>
+        <td class="totalCart" >
+          <p>Total du panier = <span id="total">${sum}</span>,00€</p>
         </td>
       </tr>
     `;
-    this.saveTotal(sum);
+    this.watchClick(sum);
 
   }
 
@@ -156,7 +155,7 @@ class Panier {
       if (result.isConfirmed) {
         orinoco.cart.delete(id);
         delete this.content[id];
-        this.displayCart();;
+        this.displayCart();
       }
     });
 
@@ -173,6 +172,17 @@ class Panier {
   checkField(domElm, msg) {
     document.getElementById(domElm.id + "Msg").innerHTML = (domElm.validity.valid) ? "" : msg;
 
+  }
+
+  isAlreadyCustomer() {
+    let contact = JSON.parse(localStorage.getItem("contact"));
+    if(contact != null){
+      document.getElementById("firstName").value = contact.firstName;
+      document.getElementById("lastName").value = contact.lastName;
+      document.getElementById("address").value = contact.address;
+      document.getElementById("city").value = contact.city;
+      document.getElementById("email").value = contact.email;
+    }
   }
 
   displayForm() {
@@ -194,13 +204,14 @@ class Panier {
       <div id="cityMsg"></div>
 
       <label for="email">Adresse de messagerie<span>*</span></label>
-      <input type="email" name="email" id="email" class="lastInput" placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" required oninput="orinoco.page.checkField(this,'L\'entrée doit respecter le format email')">
-      <div id="emailMsg"></div>
+      <input type="email" name="email" id="email"  placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" required oninput="orinoco.page.checkField(this,'Doit respecter le format email')">
+      <div id="emailMsg" class="lastInput"></div>
 
 
       <button class="formBtn" type="submit">Passer commande</button>
       <p class="notice">Veuillez remplir tous les champs obligatoires (<span>*</span>) du formulaire,<br> afin de pouvoir valider votre commande</p>
     `;
+    this.isAlreadyCustomer();
   }
 
   sendForm() {
@@ -221,26 +232,20 @@ class Panier {
     orinoco.dataManager.postOrder(contactItems);
   }
 
-  watchClick() {
+  watchClick(sum) {
     const formBtn = document.getElementById("form");
     formBtn.addEventListener("submit", e => {
       e.preventDefault();
       if (orinoco.cart.content.length > 0) {
+        localStorage.setItem("total", sum);
         this.sendForm();
       } else {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Vous devez d\'abord ajouter au moins un produit.!"
+          text: "Vous devez d\'abord ajouter au moins un produit !"
         })
       }
-    })
-  }
-
-  saveTotal(sum) {
-    let validateForm = document.querySelector(".formBtn").addEventListener("click", () => {
-      sessionStorage.setItem("total", sum);
-      localStorage.clear();
     })
   }
 }

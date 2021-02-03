@@ -49,13 +49,11 @@ class DataManager {
       mode: 'cors',
       body: contactItems
     }).then(response => {
-
       return response.json();
 
     }).then(r => {
       localStorage.setItem('contact', JSON.stringify(r.contact));
-      sessionStorage.setItem('orderId', JSON.stringify(r.orderId));
-      window.location.href = "./confirmation.html";
+      window.location.assign("confirmation.html?orderId="+r.orderId);
     })
 
   }
