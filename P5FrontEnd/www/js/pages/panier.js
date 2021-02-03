@@ -185,8 +185,16 @@ class Panier {
     }
   }
 
+  resetInputs() {
+    document.getElementById("resetInputs").addEventListener("click", function(){
+      localStorage.removeItem("contact");
+      orinoco.page.displayForm();
+    })
+  }
+
   displayForm() {
     document.getElementById('form').innerHTML = /*html*/ `
+      <span id="resetInputs">Ce n'est pas vous ?</span>
       <label for="firstName">Prénom<span>*</span></label>
       <input type="text" name="firstName" id="firstName" placeholder="Jean" pattern="^[a-zA-Z]{1}[a-zA-Z'À-ÿ -]+$" required oninput="orinoco.page.checkField(this,'Ne doit contenir que des lettres (au moins 2)')">
       <div id="firstNameMsg"></div>
@@ -212,6 +220,7 @@ class Panier {
       <p class="notice">Veuillez remplir tous les champs obligatoires (<span>*</span>) du formulaire,<br> afin de pouvoir valider votre commande</p>
     `;
     this.isAlreadyCustomer();
+    this.resetInputs();
   }
 
   sendForm() {

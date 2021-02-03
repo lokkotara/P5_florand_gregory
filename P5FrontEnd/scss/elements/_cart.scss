@@ -67,6 +67,20 @@
   width: 100%;
   row-gap: 1rem;
 
+  #resetInputs {
+    width: 20rem;
+    margin: 0 auto 1rem;
+    box-shadow: 0 2px 3px;
+    border-radius: 25px;
+    padding: 1rem 0;
+    background-color: #79282038;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--Secondary-Color);
+      color: beige;
+    }
+  }
+
   input:valid {
     border-color: #c2d8b6;
   }
