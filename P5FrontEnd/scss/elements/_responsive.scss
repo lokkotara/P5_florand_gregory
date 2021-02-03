@@ -1,3 +1,4 @@
+// format tablette
 @media screen and (min-width:768px) {
   header {
     padding: 0 3rem;
@@ -48,6 +49,7 @@
   }
 }
 
+// format laptop
 @media screen and (min-width:940px) {
   .teddyCard {
     width: auto;

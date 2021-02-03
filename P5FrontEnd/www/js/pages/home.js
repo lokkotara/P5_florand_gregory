@@ -81,7 +81,6 @@ class Home {
       .split(" ");//donne un tableau avec chaque mot en minuscule et séparé.
     let maj;
 
-    // 
     for (let i = 1, size = colors.length; i < size; i++) {
       maj = colors[i].slice(0, 1).toUpperCase();//met une majuscule à la 1ère lettre de chaque mot.
       colors[i] = maj + colors[i].slice(1);//colle le reste du mot en minuscule.
