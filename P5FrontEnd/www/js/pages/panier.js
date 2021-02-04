@@ -195,18 +195,22 @@ class Panier {
   }
 
   /**
-   * [checkField description]
+   * vérifie si le champ requis respecte le regex
+   * si oui, n'affiche rien. Sinon, affiche le message en paramètre
    *
    * @param   {HTMLElement}  domElm  [domElm description]
-   * @param   {String}  msg     [msg description]
+   * @param   {String}  msg     message de ce qui est attendu dans l'input
    *
-   * @return  {[type]}          [return description]
    */
   checkField(domElm, msg) {
     document.getElementById(domElm.id + "Msg").innerHTML = (domElm.validity.valid) ? "" : msg;
 
   }
 
+  /**
+   * vérifie si un objet "contact" existe dans le localStorage
+   * si oui, affiche les infos enregistrées dans les champs correspondants
+   */
   isAlreadyCustomer() {
     let contact = JSON.parse(localStorage.getItem("contact"));
     if(contact != null){
@@ -218,6 +222,9 @@ class Panier {
     }
   }
 
+  /**
+   * au clic, supprime l'objet "contact" du localStorage et actualise l'affichage du formulaire
+   */
   resetInputs() {
     document.getElementById("resetInputs").addEventListener("click", function(){
       localStorage.removeItem("contact");
@@ -225,6 +232,9 @@ class Panier {
     })
   }
 
+  /**
+   * affiche le formulaire
+   */
   displayForm() {
     document.getElementById('form').innerHTML = /*html*/ `
       <span id="resetInputs">Ce n'est pas vous ?</span>
@@ -256,6 +266,11 @@ class Panier {
     this.resetInputs();
   }
 
+  /**
+   * créé un string contenant les infos de contact et le tableau des produits du panier
+   *
+   * @return  {string}  infos de commande pour envoi via la méthode postOrder
+   */
   sendForm() {
     let contact = {
       firstName: document.getElementById("firstName").value,
@@ -274,6 +289,11 @@ class Panier {
     orinoco.dataManager.postOrder(contactItems);
   }
 
+  /**
+   * surveille la soumission du formulaire
+   * s'il y a au moins un objet dans le panier, on sauvegarde le prix total dans localStorage puis envoie le formulaire
+   * sinon, affiche un modal pour alerter d'ajouter au moins un article
+   */
   watchClick(sum) {
     const formBtn = document.getElementById("form");
     formBtn.addEventListener("submit", e => {
