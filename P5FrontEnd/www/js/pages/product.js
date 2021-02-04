@@ -1,30 +1,23 @@
-/*eslint-disable no-unused-vars*/
 /* global orinoco */
-
+/*eslint-disable no-unused-vars*/
 class Product {
-  /**
-   * [constructor description]
-   *
-   * @param   {HTMLElement}  domTarget  l'élément dans lequel afficher le contenu 
-   *
-   * @constructor
-   */
+  
   constructor(domTarget, productId) {
 
     this.showProduct(domTarget, productId);
   }
 
   /**
-   * affiche le produit sélectionné
+   * récupère les infos du produit dans l'api puis les affichent dans la cible
+   * lance la méthode pour surveiller les quantités choisies
    *
-   * @param   {[type]}  domTarget  élément dans lequel affiché
+   * @param   {HTMLElement}  domTarget  élément dans lequel afficher
    * @param   {string}  productId  Id du produit à afficher
    *
-   * @return  {[type]}             [return description]
    */
   async showProduct(domTarget, productId) {
-    const produit = await orinoco.dataManager.getProduct(productId); //attend la réponse de l'api pour le produit
-    domTarget.innerHTML = this.productHtml(produit); //affiche le produit par la méthode productHtml().
+    const produit = await orinoco.dataManager.getProduct(productId); 
+    domTarget.innerHTML = this.productHtml(produit); 
     this.initQtySelector();
   }
 
@@ -48,7 +41,7 @@ class Product {
    *
    * @param   {Object}  specs  les propriétés de l'objet
    *
-   * @return  {String}         le html du produit
+   * @return  {HTMLElement}         le html du produit
    */
   productHtml(specs) {
     return /*html*/ `
@@ -88,11 +81,11 @@ class Product {
 
 
   /**
-   * génère la liste des couleurs
+   * génère la liste des couleurs sous forme de dropdown list
    *
-   * @param   {Array}  colors  les variantes
+   * @param   {Array}  colors  les variantes de couleurs propres au produit
    *
-   * @return  {String}         les couleurs sous forme html
+   * @return  {HTMLElement}    les couleurs sous forme html
    */
   showOptionColor(colors) {
     let html = "";
@@ -102,6 +95,13 @@ class Product {
     return html;
   }
 
+  /**
+   * Transfornme les noms de couleurs pour qu'il soit présentable dans la dropdown list
+   *
+   * @param   {[type]}  color  [color description]
+   *
+   * @return  {[type]}         [return description]
+   */
   convertToDisplayName(color) {
     let colors = color
       .toLowerCase()
@@ -115,6 +115,13 @@ class Product {
     return colors.join(" ");
   }
 
+  /**
+   * génère la liste des couleurs sous forme de pastille.
+   *
+   * @param   {Array}  colors  les variantes
+   *
+   * @return  {String}         les couleurs sous forme html
+   */
   showColor(colors) {
     let html = "";
     for (let i = 0, size = colors.length; i < size; i++) {
@@ -123,6 +130,13 @@ class Product {
     return html;
   }
 
+  /**
+   * Récupère le nom de la couleur dans l'api et le transforme en nom de classe.
+   *
+   * @param   {string}  color  correspond aux couleurs pour chaque nounours
+   *
+   * @return  {string}         nom de classe en camelCase qui finit par Color utilisé dans le CSS.
+   */
   convertToClassName(color) {
     let colors = color
       .toLowerCase()
@@ -136,6 +150,9 @@ class Product {
     return colors.join("") + "Color";
   }
 
+  /**
+   * récupère le chiffre présent dans le champ "field" et le réduit de 1 jusqu'à 1 minimum, sinon ne fait rien
+   */
   decrementInput() {
     let getInput = document.getElementById("field").value;
     let stringToNumber = parseInt(getInput, 10);
@@ -145,6 +162,9 @@ class Product {
     }
   }
 
+  /**
+   * récupère le chiffre présent dans le champ "field" et l'augmente de 1
+   */
   incrementInput() {
     let getInput = document.getElementById("field").value;
     let stringToNumber = parseInt(getInput, 10);
@@ -152,6 +172,10 @@ class Product {
     document.getElementById("field").value = newInput;
   }
 
+  /**
+   * Récupère l'id du produit en paramètre d'url, ainsi que la quantité sélectionnée et l'ajoute à l'array du composant panier
+   * ensuite, affiche un modal qui récapitule le nombre de nounours ajouté et propose une redirection panier ou index
+   */
   addToCart() {
     let params = (new URL(document.location)).searchParams;
     let produit = params.get("_id");

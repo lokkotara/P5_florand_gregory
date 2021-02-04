@@ -4,7 +4,7 @@ const orinoco = {
 };
 orinoco.cart = new Cart(document.querySelector("nav"));
 orinoco.page = definePage();
-
+console.log(typeof orinoco);
 /**
  * définit le contenu à afficher sur les pages
  *

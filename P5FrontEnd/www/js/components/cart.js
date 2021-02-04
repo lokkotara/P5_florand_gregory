@@ -12,9 +12,9 @@ class Cart {
   content = [];
 
   /**
-   * Cart's class constructor
+   * constructeur du composant panier
    *
-   * @param   {HTMLElement}  domTarget  [domTarget description]
+   * @param   {HTMLElement}  domTarget  cible où afficher
    *
    * @constructor
    */
@@ -34,6 +34,10 @@ class Cart {
     `;
   }
 
+  /**
+   * ajoute à la fin du array l'id en 1er paramètre, le nombre de fois spécifié dans le 2ème paramètre
+   * ensuite, actualise le rendu du composant panier et sauvegarde le nouveau contenu dans localStorage
+   */
   add(productId, qty = 1) {
     for (let i = 1; i <= qty; i++) {
       this.content.push(productId);
@@ -42,12 +46,21 @@ class Cart {
     orinoco.dataManager.saveCart(this.content);
   }
 
+  /**
+   * Recherche la valeur du paramètre dans l'array et l'enlève
+   * ensuite, réactualise l'affichage et sauvegarde l'array modifié dans localStorage
+   */
   remove(productId) {
     const id = this.content.indexOf(productId);
     this.content.splice(id, 1);
     this.render();
     orinoco.dataManager.saveCart(this.content);
   }
+
+  /**
+   * filtre l'id spécifié en paramètre en retournant un tableau où seuls les id n'étant pas celle spécifiée sont rajoutées
+   * Ensuite, réactualise l'affichage et sauvegarde l'array modifié dans localStorage
+   */
   delete(productId) {
     const newContent = [];
     for (let i = 0, size=this.content.length; i <size; i++) {
@@ -58,6 +71,10 @@ class Cart {
     orinoco.dataManager.saveCart(this.content);
   }
 
+  /**
+   * renvoie un tableau vide comme dans le constructeur, actualise l'affichage et sauvegarde l'array dans localStorage
+   *
+   */
   deleteAll() {
     this.content = [];
     this.render();

@@ -12,16 +12,18 @@ class Home {
     this.showAllProducts(domTarget);
   }
 
+  /**
+   * récupère tous les produits de l'api et les itérent à l'intérieur de la cible passée en paramètre
+   */
   async showAllProducts(domTarget) {
-    const produits = await orinoco.dataManager.getAllProducts(); //récupère un tableau de tous les produits de l'api.
+    const produits = await orinoco.dataManager.getAllProducts(); 
     let content = "";
 
-    // créé une boucle qui applique la méthode productHtml à chaque itération trouvé dans produits.
     for (let i = 0, size = produits.length; i < size; i++) {
       content += this.productHtml(produits[i]);
     }
 
-    domTarget.innerHTML = content;//et l'affiche à l'endroit ciblé par le domTarget.
+    domTarget.innerHTML = content;
   }
 
   /**
@@ -60,7 +62,6 @@ class Home {
   showColor(colors) {
     let html = "";
 
-    // créé une boucle qui renvoit une pastille pour chaque couleur trouvé dans l'api.
     for (let i = 0, size = colors.length; i < size; i++) {
       html += `<i class="fas fa-circle ${this.convertToClassName(colors[i])}" ></i>`;
     }
@@ -73,18 +74,18 @@ class Home {
    *
    * @param   {string}  color  correspond aux couleurs pour chaque nounours
    *
-   * @return  {string}         nom de classe en camelCase qui finit par Color.
+   * @return  {string}         nom de classe en camelCase qui finit par Color utilisé dans le CSS.
    */
   convertToClassName(color) {
     let colors = color
       .toLowerCase()
-      .split(" ");//donne un tableau avec chaque mot en minuscule et séparé.
+      .split(" ");
     let maj;
 
     for (let i = 1, size = colors.length; i < size; i++) {
-      maj = colors[i].slice(0, 1).toUpperCase();//met une majuscule à la 1ère lettre de chaque mot.
-      colors[i] = maj + colors[i].slice(1);//colle le reste du mot en minuscule.
+      maj = colors[i].slice(0, 1).toUpperCase();
+      colors[i] = maj + colors[i].slice(1);
     }
-    return colors.join("") + "Color";//renvoit le mot en camelCase avec Color à la fin.
+    return colors.join("") + "Color";
   }
 }

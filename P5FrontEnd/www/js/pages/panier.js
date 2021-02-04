@@ -15,6 +15,11 @@ class Panier {
     this.watchClick();
   }
 
+  /**
+   * affiche le template correspondant à l'état du panier
+   * templateProduit si objets dans le panier, templateEmptyCart si vide et template Error si erreur
+   * transmet en paramètre la valeur totale de la ligne à la méthode qui affiche le total
+   */
   async displayCart() {
     let html = "",
       i = 0,
@@ -46,9 +51,9 @@ class Panier {
   }
 
   /**
-   * [arrayToObject description]
+   * transforme un array en objet et definit sa propriété quantité avec une condition
    *
-   * @param   {Array}  list  [list description]
+   * @param   {Array}  list  contenu du composant panier
    *
    * @return  {void}        met à jour le contenu du panier sous forme d'objet
    */
@@ -64,7 +69,7 @@ class Panier {
   }
 
   /**
-   * html template of a product 
+   * template d'un produit 
    *
    * @param   {Object}  specs           product specifications
    * @param   {String}  specs._id
@@ -74,7 +79,7 @@ class Panier {
    * @param   {Number}  specs.number
    * @param   {Number}  specs.price
    *
-   * @return  {String}                  fully filled html template
+   * @return  {String}                  template HTML
    */
   templateProduit(specs) {
     return /*html*/ `
@@ -106,18 +111,31 @@ class Panier {
   `;
   }
 
+  /**
+   * template à retourner si le composant panier est vide
+   */
   templateEmptyCart() {
     return /*html*/ `
       <p class="contentText">Votre panier est vide, pensez à ajouter des articles</p>
     `;
   }
 
+  /**
+   * template à retourner si une erreur empêche l'affichage du panier
+   */
   templateError() {
     return /*html*/ `
       <p class="contentText">Oups, il semble qu'une erreur soit survenue.</p>
     `;
   }
 
+  /**
+   * affiche la ligne du total panier
+   * lance ensuite la méthode de surveillance de la validation du formulaire
+   * @param   {number}  sum  total obtenu dans la méthode displayCart
+   *
+   * @return  {HTMLElement}       retourne la ligne "total"
+   */
   displayTotal(sum) {
     document.getElementById('displayTotal').innerHTML = /*html*/ `
       <tr>
@@ -130,18 +148,34 @@ class Panier {
 
   }
 
+  /**
+   * Ajoute un id passé en paramètre au composant panier
+   * ajoute un aussi à la propriété quantité du produit
+   * puis actualise l'affichage du panier
+   */
   increment(id) {
     orinoco.cart.add(id);
     this.content[id].qte++;
     this.displayCart();
   }
 
+  /**
+   * retire un id du composant panier
+   * retire aussi 1 à la quantité du produit sélectionné
+   * si la quantité arrive à 0, lance la méthode pour supprimer la ligne
+   */
   decrement(id) {
     orinoco.cart.remove(id);
     this.content[id].qte--;
     if (this.content[id].qte === 0) this.deleteLine(id);
     else this.displayCart();
   }
+
+  /**
+   * ouvre un modal pour confirmer le choix utilisateur
+   * si oui, supprime tous les id qui correspondent au paramètre du composant panier
+   * supprime aussi la ligne du produit du panier. Sinon, actualise son affichage
+   */
   deleteLine(id) {
     Swal.fire({
       position: "top",
@@ -158,7 +192,6 @@ class Panier {
         this.displayCart();
       }
     });
-
   }
 
   /**

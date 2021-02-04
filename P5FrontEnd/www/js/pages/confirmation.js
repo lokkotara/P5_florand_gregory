@@ -7,12 +7,19 @@ class Confirmation {
     this.clearCart(domTarget);
   }
   
+  /**
+   * vide le panier du localStorage et du composant panier
+   * puis actualise l'affichage
+   */
   clearCart(domTarget) {
     localStorage.removeItem("cart");
     orinoco.cart.deleteAll();
     this.displayMessage(domTarget);
   }
 
+  /**
+   * récupère les infos et les affiche dans le message de confirmation
+   */
   displayMessage(domTarget) {
     let contact = JSON.parse(localStorage.getItem("contact")),
       orderId = (new URL(document.location)).searchParams,
