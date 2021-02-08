@@ -27,10 +27,10 @@ class Cart {
 
   render() {
     this.DOM.innerHTML = /*html*/ `
-    <a href="./panier.html" class="iconCart">
-      <span>Mon panier</span>
-      <i class="fas fa-shopping-cart">${this.content.length}</i>
-    </a>
+      <a href="./panier.html" class="iconCart">
+        <span>Mon panier</span>
+        <i class="fas fa-shopping-cart">${this.content.length}</i>
+      </a>
     `;
   }
 
@@ -76,7 +76,9 @@ class Cart {
    *
    */
   deleteAll() {
+    console.log(this.content);
     this.content = [];
+    console.log(this.content);
     this.render();
     orinoco.dataManager.saveCart(this.content);
   }

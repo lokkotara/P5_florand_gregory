@@ -35,20 +35,20 @@ class Home {
    */
   productHtml(specs) {
     return /*html*/`
-    <article class="teddyCard">
-        <a href="./produit.html?_id=${specs._id}">
-          <figure>
-            <img src="${specs.imageUrl}" alt="Deuxième ours">
-            <figcaption>
-              <h3 id="h3">${specs.name}</h3>
-              <span class="displayColor">${this.showColor(specs.colors)}</span>
-              <span class="price">${specs.price / 100},00€</span>
-              <p>${specs.description}</p>
-              <input class="addButton" type="button" value="En savoir plus">
-            </figcaption>
-          </figure>
-        </a>
-    </article>
+      <article class="teddyCard">
+          <a href="./produit.html?_id=${specs._id}">
+            <figure>
+              <img src="${specs.imageUrl}" alt="Deuxième ours">
+              <figcaption>
+                <h3 id="h3">${specs.name}</h3>
+                <span class="displayColor">${this.showColor(specs.colors)}</span>
+                <span class="price">${specs.price / 100},00€</span>
+                <p>${specs.description}</p>
+                <input class="addButton" type="button" value="En savoir plus">
+              </figcaption>
+            </figure>
+          </a>
+      </article>
     `;
   }
 
@@ -61,11 +61,9 @@ class Home {
    */
   showColor(colors) {
     let html = "";
-
     for (let i = 0, size = colors.length; i < size; i++) {
       html += `<i class="fas fa-circle ${this.convertToClassName(colors[i])}" ></i>`;
     }
-
     return html;
   }
 

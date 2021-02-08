@@ -145,7 +145,6 @@ class Panier {
       </tr>
     `;
     this.watchClick(sum);
-
   }
 
   /**
@@ -204,7 +203,6 @@ class Panier {
    */
   checkField(domElm, msg) {
     document.getElementById(domElm.id + "Msg").innerHTML = (domElm.validity.valid) ? "" : msg;
-
   }
 
   /**
@@ -257,7 +255,6 @@ class Panier {
       <label for="email">Adresse de messagerie<span>*</span></label>
       <input type="email" name="email" id="email"  placeholder="JeanDupont@gmail.com" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})" required oninput="orinoco.page.checkField(this,'Doit respecter le format email')">
       <div id="emailMsg" class="lastInput"></div>
-
 
       <button class="formBtn" type="submit">Passer commande</button>
       <p class="notice">Veuillez remplir tous les champs obligatoires (<span>*</span>) du formulaire,<br> afin de pouvoir valider votre commande</p>

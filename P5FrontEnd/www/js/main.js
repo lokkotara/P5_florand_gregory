@@ -4,9 +4,9 @@ const orinoco = {
 };
 orinoco.cart = new Cart(document.querySelector("nav"));
 orinoco.page = definePage();
-console.log(typeof orinoco);
+
 /**
- * définit le contenu à afficher sur les pages
+ * définit le script à utiliser sur la page courante
  *
  * @return  {Home|Product|Panier|Confirmation}  retourne une page
  */
