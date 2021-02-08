@@ -6,7 +6,7 @@ const browserSync = require("browser-sync");
 const minify = require("gulp-clean-css");
 
 /**
- * insert les partials dans les pages
+ * insère les partials html dans les pages
  *
  * @return  {void} 
  */
@@ -15,9 +15,6 @@ function makeTemplate(){
     .pipe(ejs())
     .pipe(gulp.dest("./www"));
 }
-
-
-// module.exports.makeTemplate = makeTemplate;
 
 function scss2css() {
   return gulp.src("./scss/main.scss")
@@ -32,7 +29,6 @@ function autoUpdate(){
       baseDir : "./www"
     }
   });
-  // gulp.watch("./scss/main.scss", scss2css);
   gulp.watch("./scss/**/*.scss", scss2css);
   gulp.watch("./www/").on("change", browserSync.reload);
   gulp.watch("./src/templates/**/*.html", makeTemplate);

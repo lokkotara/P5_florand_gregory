@@ -19,8 +19,13 @@ class Home {
     const produits = await orinoco.dataManager.getAllProducts(); 
     let content = "";
 
-    for (let i = 0, size = produits.length; i < size; i++) {
-      content += this.productHtml(produits[i]);
+    try {
+      for (let i = 0, size = produits.length; i < size; i++) {
+        content += this.productHtml(produits[i]);
+      }
+      
+    } catch (error) {
+      console.error(error);
     }
 
     domTarget.innerHTML = content;
