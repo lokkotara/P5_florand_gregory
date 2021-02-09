@@ -76,9 +76,7 @@ class Cart {
    *
    */
   deleteAll() {
-    console.log(this.content);
     this.content = [];
-    console.log(this.content);
     this.render();
     orinoco.dataManager.saveCart(this.content);
   }

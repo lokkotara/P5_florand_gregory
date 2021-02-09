@@ -16,16 +16,16 @@ class Home {
    * récupère tous les produits de l'api et les itérent à l'intérieur de la cible passée en paramètre
    */
   async showAllProducts(domTarget) {
-    const produits = await orinoco.dataManager.getAllProducts(); 
-    let content = "";
 
+    let content = "";
     try {
+      const produits = await orinoco.dataManager.getAllProducts();
       for (let i = 0, size = produits.length; i < size; i++) {
         content += this.productHtml(produits[i]);
       }
-      
-    } catch (error) {
-      console.error(error);
+
+    } catch (err) {
+      console.error(err);
     }
 
     domTarget.innerHTML = content;
@@ -39,7 +39,7 @@ class Home {
    * @return  {String}         le html du produit
    */
   productHtml(specs) {
-    return /*html*/`
+    return /*html*/ `
       <article class="teddyCard">
           <a href="./produit.html?_id=${specs._id}">
             <figure>

@@ -81,6 +81,8 @@ class DataManager {
       mode: "cors",
       body: contactItems
 
+    }).catch(e => {
+        console.error("erreur : " + e.name);
     }).then(response => {
       return response.json();
 
