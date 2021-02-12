@@ -3,9 +3,11 @@
 // Réglages généraux
 :root {
   --Primary-Color: #b9abcf;
+  --Primary-Color-Alt: #d5d0e5;
   --Secondary-Color: #6b1108;
   --Dark-Color: #2d2c2c;
   --Light-Color: #f3e6e8;
+  --Gradient-Color: linear-gradient(275deg, var(--Primary-Color) 0%, var(--Primary-Color-Alt) 74%);
   font-size: 10px;
 }
 

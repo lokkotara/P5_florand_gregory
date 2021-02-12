@@ -41,7 +41,7 @@ class Home {
       <article class="teddyCard">
           <a href="./produit.html?_id=${specs._id}">
             <figure>
-              <img src="${specs.imageUrl}" alt="Deuxième ours">
+              <img src="${specs.imageUrl}" alt="Ours ${specs.name}">
               <figcaption>
                 <h3 id="h3">${specs.name}</h3>
                 <span class="displayColor">${this.showColor(specs.colors)}</span>

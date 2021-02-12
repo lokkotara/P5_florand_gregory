@@ -27,7 +27,7 @@ class Confirmation {
 
     domTarget.innerHTML = /*html*/ `
     <section class="confirmationWrapper">
-      <h2>${contact.firstName}, merci pour votre achat !</h2>
+      <h1>${contact.firstName}, merci pour votre achat !</h1>
       <p>
         Votre commande d'un montant de <span id="orderAmount">${totalOrder},00€</span> a été validée.
       </p>
