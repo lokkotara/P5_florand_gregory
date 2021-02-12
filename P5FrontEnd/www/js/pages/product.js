@@ -1,5 +1,3 @@
-/* global orinoco */
-/*eslint-disable no-unused-vars*/
 class Product {
   
   constructor(domTarget, productId) {
@@ -59,7 +57,7 @@ class Product {
           <div class="minusBtn" id="minusBtn">
             <i class="fas fa-minus"></i>
           </div>
-          <input type="number" class="field" id="field" value="1">
+          <input type="text" class="field" id="field" value="1" aria-label="Champ affichant la quantité">
           <div class="plusBtn" id="plusBtn">
             <i class="fas fa-plus"></i>
           </div>

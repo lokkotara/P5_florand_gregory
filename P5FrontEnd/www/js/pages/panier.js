@@ -1,4 +1,3 @@
-/* global orinoco */
 class Panier {
 
   /**
@@ -95,7 +94,7 @@ class Panier {
           <div class="minusBtn" onclick="orinoco.page.decrement('${specs._id}')">
             <i class="fas fa-minus"></i>
           </div>
-          <input type="number" class="field" value="${specs.qte}">
+          <input type="text" class="field" value="${specs.qte}" aria-label="Champ affichant la quantité">
           <div class="plusBtn" onclick="orinoco.page.increment('${specs._id}')">
             <i class="fas fa-plus"></i>
           </div>
