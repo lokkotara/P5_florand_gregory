@@ -16,7 +16,7 @@ class Panier {
 
   /**
    * affiche le template correspondant à l'état du panier
-   * templateProduit si objets dans le panier, templateEmptyCart si vide et template Error si erreur
+   * templateProduct si objets dans le panier, templateEmptyCart si vide et template Error si erreur
    * transmet en paramètre la valeur totale de la ligne à la méthode qui affiche le total
    */
   async displayCart() {
@@ -29,7 +29,7 @@ class Panier {
       for (const [key, value] of Object.entries(this.content)) {
         i++;
         specs = await orinoco.dataManager.getProduct(key);
-        html += this.templateProduit({
+        html += this.templateProduct({
           ...value,
           ...specs,
           number: i
@@ -70,7 +70,7 @@ class Panier {
   /**
    * template d'un produit 
    *
-   * @param   {Object}  specs           product specifications
+   * @param   {Object}  specs           Les propriétés d'un produit
    * @param   {String}  specs._id
    * @param   {String}  specs.imageUrl
    * @param   {Number}  specs.qte
@@ -80,7 +80,7 @@ class Panier {
    *
    * @return  {String}                  template HTML
    */
-  templateProduit(specs) {
+  templateProduct(specs) {
     return /*html*/ `
     <tr>
       <td>

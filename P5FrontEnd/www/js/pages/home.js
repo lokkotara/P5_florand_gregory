@@ -11,7 +11,7 @@ class Home {
   }
 
   /**
-   * récupère tous les produits de l'api et les itérent à l'intérieur de la cible passée en paramètre
+   * récupère tous les produits de l'api et les itèrent à l'intérieur de la cible passée en paramètre
    */
   async showAllProducts(domTarget) {
 
@@ -34,7 +34,7 @@ class Home {
    *
    * @param   {Object}  specs  les propriétés de l'objet
    *
-   * @return  {String}         le html du produit
+   * @return  {HTMLElement}    le html du produit
    */
   productHtml(specs) {
     return /*html*/ `

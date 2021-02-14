@@ -88,7 +88,7 @@ class Product {
   showOptionColor(colors) {
     let html = "";
     for (let i = 0, size = colors.length; i < size; i++) {
-      html += ` <option value="firstChoice">${this.convertToDisplayName(colors[i])}</option>`;
+      html += ` <option>${this.convertToDisplayName(colors[i])}</option>`;
     }
     return html;
   }

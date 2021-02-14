@@ -10,12 +10,17 @@ orinoco.page = definePage();
  * @return  {Home|Product|Panier|Confirmation}  retourne une page
  */
 function definePage() {
-  let params = (new URL(document.location)).searchParams; //récupère le paramètre de l'url. Utilisé pour récupérer l'id du produit à afficher sur la page produit.
-  var url = window.location.pathname; //récupère l'url de la page sur laquelle on est.
-
-  // retourne l'instance de la classe appropriée en fonction de la page où l'on se trouve.
-  if (url == "/" || url == "/index.html") return new Home(document.querySelector("div.cardsWrapper"));
-  if (url == "/produit.html") return new Product(document.querySelector("div.singleCardWrapper"), params.get("_id"));
-  if (url == "/panier.html") return new Panier(document.querySelector("tbody.cartSummaryBody"));
-  if (url == "/confirmation.html") return new Confirmation(document.querySelector("main.mainConfirmation"));
+  let params = (new URL(document.location)).searchParams; 
+  var url = window.location.pathname;
+  
+  switch (url) {
+    case "/produit.html":
+      return new Product(document.querySelector("div.singleCardWrapper"), params.get("_id"));
+    case "/panier.html":
+      return new Panier(document.querySelector("tbody.cartSummaryBody"));
+    case "/confirmation.html":
+      return new Confirmation(document.querySelector("main.mainConfirmation"));
+    default:
+      return new Home(document.querySelector("div.cardsWrapper"));
+  }
 }
