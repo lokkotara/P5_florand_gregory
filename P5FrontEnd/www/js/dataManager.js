@@ -1,21 +1,21 @@
 class DataManager {
 
-  produits = null;
+  products = null;
 
   constructor(src) {
     this.src = src;
   }
 
   /**
-   * récupère tous les produits de l'api
+   * récupère tous les products de l'api
    *
    * @return  {Array}  Les renvoient sous forme de tableau
    */
   async getAllProducts() {
-    if (this.produits !== null) return this.produits;
+    if (this.products !== null) return this.products;
     const data = await fetch(this.src);
-    this.produits = await data.json();
-    return this.produits;
+    this.products = await data.json();
+    return this.products;
   }
 
   /**
@@ -26,7 +26,7 @@ class DataManager {
    * @return  {object}             retourne l'objet correspondant à l'id
    */
   async getProduct(productId) {
-    if (this.produits === null) await this.getAllProducts();
+    if (this.products === null) await this.getAllProducts();
     return this.extractFromArray(productId);
   }
 
@@ -38,8 +38,8 @@ class DataManager {
    * @return  {Object}             retourne l'objet correspondant à l'id
    */
   extractFromArray(productId) {
-    for (let i = 0, size = this.produits.length; i < size; i++) {
-      if (this.produits[i]._id === productId) return this.produits[i];
+    for (let i = 0, size = this.products.length; i < size; i++) {
+      if (this.products[i]._id === productId) return this.products[i];
     }
     return {};
   }

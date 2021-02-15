@@ -35,7 +35,7 @@ class Cart {
   }
 
   /**
-   * ajoute à la fin du array l'id en 1er paramètre, le nombre de fois spécifié dans le 2ème paramètre
+   * ajoute à la fin du tableau l'id en 1er paramètre, le nombre de fois spécifié dans le 2ème paramètre
    * ensuite, actualise le rendu du composant panier et sauvegarde le nouveau contenu dans localStorage
    */
   add(productId, qty = 1) {

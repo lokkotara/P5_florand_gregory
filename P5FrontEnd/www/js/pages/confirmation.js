@@ -1,5 +1,3 @@
-/* global orinoco */
-// eslint-disable-next-line no-unused-vars
 class Confirmation {
 
   constructor(domTarget) {
