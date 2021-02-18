@@ -1,6 +1,8 @@
 # Orinoco - Une histoire de nounours
 ## Description
 5ème projet de la formation développeur web OpenClassrooms, il consiste à développer la partie front-end d'un premier MVP pour un site de e-commerce
+### Update
+Vous trouverez à la racine du repository, le plan de tests au format pdf
 ## Installation
 1. Cloner le repository sur votre ordinateur
 1. Taper ``cd P5Backend`` dans le terminal pour entrer dans le répertoire de l'API
