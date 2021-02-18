@@ -81,14 +81,15 @@ class DataManager {
       mode: "cors",
       body: contactItems
 
-    }).catch(e => {
-        console.error("erreur : " + e.name);
     }).then(response => {
       return response.json();
-
+      
     }).then(r => {
       localStorage.setItem("contact", JSON.stringify(r.contact));
       window.location.assign("./confirmation.html?orderId=" + r.orderId);
+
+    }).catch(e => {
+        console.error("erreur : " + e.name);
     })
   }
 }
